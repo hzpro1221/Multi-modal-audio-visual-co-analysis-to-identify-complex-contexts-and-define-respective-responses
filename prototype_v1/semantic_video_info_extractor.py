@@ -60,28 +60,30 @@ def semantic_video_info_extractor(
             prefix="chunk"
         )
         for chunk_path in video_chunks:
+            prompts = []
             if summary:
                 summary_prompt = (
                     "Provide a concise and informative summary of the video, including main events, topics, "
                     "key visual or audio elements, and its overall purpose or message."
                 )
-                result = subprocess.run([
-                    "python", "prototype_v1/video_understander/main.py",
-                    "--video_path", chunk_path,
-                    "--prompt", summary_prompt,
-                    "--max_new_tokens", str(max_new_tokens),
-                    "--model", video_understand_model
-                ], capture_output=True, text=True)
-                results["summary"].append(result.stdout.strip())
+                prompts.append(summary_prompt)
 
             if answer_questions and questions:
                 for q in questions:
-                    result = subprocess.run([
-                        "python", "prototype_v1/video_understander/main.py",
-                        "--video_path", chunk_path,
-                        "--prompt", q,
-                        "--max_new_tokens", str(max_new_tokens),
-                        "--model", video_understand_model
-                    ], capture_output=True, text=True)
-                    results["questions"][q].append(result.stdout.strip())
+                    prompts.append(q)
+
+            result = subprocess.run([
+                "python", "prototype_v1/video_understander/main.py",
+                "--video_path", chunk_path,
+                "--prompt", prompts,
+                "--max_new_tokens", str(max_new_tokens),
+                "--model", video_understand_model
+            ], capture_output=True, text=True)
+
+            if summary:
+                results["summary"].append(result[summary_prompt].stdout.strip())            
+
+            if answer_questions and questions:
+                results["questions"][q].append(result[q].stdout.strip())                
+
     return results
