@@ -30,7 +30,6 @@ if __name__ == "__main__":
             questions=questions,
             transcribe=True,
             summary=True,
-            human_actions=True,
             answer_questions=True
         )
         chunk_infors.append(results)
