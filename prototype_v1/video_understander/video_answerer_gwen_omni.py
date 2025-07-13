@@ -6,7 +6,6 @@ from typing import Union, Optional, Literal
 from transformers import Qwen2_5OmniForConditionalGeneration, Qwen2_5OmniProcessor
 from qwen_omni_utils import process_mm_info
 
-
 class VideoAnswererGwenOmni:
     """
     General-purpose video understanding module using Qwen2.5-Omni.

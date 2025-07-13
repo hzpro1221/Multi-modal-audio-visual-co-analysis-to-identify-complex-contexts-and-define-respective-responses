@@ -1,6 +1,7 @@
 import torch
 from pathlib import Path
 from typing import Union, Optional, Literal
+import av  # PyAV to check video stream validity
 
 from transformers import AutoProcessor, AutoModelForImageTextToText
 
@@ -25,23 +26,27 @@ class VideoAnswererSmolVLM2:
         ).to(device)
         self.device = device
 
+    def _is_valid_video(self, video_path: Union[str, Path]) -> bool:
+        """
+        Check if the video has at least one video stream and can be opened.
+        """
+        try:
+            with av.open(str(video_path)) as container:
+                return len(container.streams.video) > 0
+        except Exception as e:
+            print(f"[⚠️] Invalid video at {video_path}: {e}")
+            return False
+
     def generate(
         self,
         video_path: Union[str, Path],
         prompt: str = "What is happening in this video?",
         max_new_tokens: int = 64
     ) -> str:
-        """
-        Answers a question or instruction based on video content.
+        video_path = Path(video_path)
+        if not self._is_valid_video(video_path):
+            raise ValueError(f"Invalid or unreadable video file: {video_path}")
 
-        Args:
-            video_path (str|Path): Path to the input video file (.mp4, etc.)
-            prompt (str): Question or instruction about the video.
-            max_new_tokens (int): Max number of tokens to generate.
-
-        Returns:
-            str: Generated textual response.
-        """
         messages = [
             {
                 "role": "user",
@@ -61,4 +66,10 @@ class VideoAnswererSmolVLM2:
         ).to(self.device, dtype=self.model.dtype)
 
         output_ids = self.model.generate(**inputs, max_new_tokens=max_new_tokens)
-        return self.processor.batch_decode(output_ids, skip_special_tokens=True)[0].strip()
+        full_text = self.processor.batch_decode(output_ids, skip_special_tokens=True)[0].strip()
+
+        # ✅ Strip everything before "Assistant:" if present
+        if "Assistant:" in full_text:
+            return full_text.split("Assistant:")[-1].strip()
+        else:
+            return full_text
