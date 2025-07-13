@@ -51,7 +51,11 @@ def fixed_interval_video_splitter(
             "-i", video_path,
             "-ss", str(start_time),
             "-t", str(interval_sec),
-            "-c", "copy",
+            "-c:v", "libx264",
+            "-preset", "veryfast",
+            "-crf", "23",
+            "-c:a", "aac",
+            "-b:a", "128k",
             str(output_file)
         ]
         subprocess.run(command, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)

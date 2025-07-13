@@ -1,0 +1,855 @@
+[
+    {
+        "chunk_path": "/home/vdsmart/khai/test_tech/Multi-modal-audio-visual-co-analysis-to-identify-complex-contexts-and-define-respective-responses/prototype_v1/video_chunks/chunk_0000.mp4",
+        "results": {
+            "video_path": "/home/vdsmart/khai/test_tech/Multi-modal-audio-visual-co-analysis-to-identify-complex-contexts-and-define-respective-responses/prototype_v1/video_chunks/chunk_0000.mp4",
+            "subtitles": "Kính thưa các đồng chí lãnh đạo, Đảng, Nhà nước, Mặt trận Tổ quốc Việt Nam, kính thưa đồng chí Chủ tịch Quốc hội, các đồng chí Phó Chủ tịch Quốc hội, Chủ tài phiên họp, k thưa các vị đại biểu quốc hội, kính thưa đồng bào và cử tri cả nước. Thông tin và truyền thông là một ngành đa lĩnh vực, vừa hạ tầng, vừa kỹ thuật công nghệ, vừa kinh tế, vừa chính trị, nhưng đều liên quan đến kỹ thuật số, bao gồm hạ tầng số, công nghệ số, công nghiệp số, quản lý nhà nước về báo chí, phát thanh truyền hình, thông tin điện tử, thông tin cơ sở, xuất bản, in và phát hành và cũng chủ yếu là trên môi trường số.",
+            "segments": [
+                {
+                    "start": 0,
+                    "end": 5,
+                    "questions": {
+                        "What is happening in the video?": "A group of people are sitting at a table in a large room.",
+                        "What are the key visuals and sounds?": "The video shows a wide shot of a large, well-lit room with a red carpet, where a group of people are gathered. The room is filled with people, some of whom are seated at desks, while others are standing. The room is well-lit, and the walls are adorned with flags and banners.",
+                        "What message or purpose does the video convey?": "The video conveys a message of unity and cooperation among the people of the country."
+                    },
+                    "summary": "The video opens with a wide shot of a large, well-lit room with a high ceiling, featuring a large screen displaying the text 'VOTA' (VOTE) and 'VOTA' (VOTE) in a large, bold font. The room is filled with people, some seated"
+                },
+                {
+                    "start": 5,
+                    "end": 10,
+                    "questions": {
+                        "What is happening in the video?": "A group of people are sitting at a table in a large room.",
+                        "What are the key visuals and sounds?": "The video shows a wide shot of a large, well-lit room with a red carpet, where a group of people are gathered. The room is filled with people, some sitting at desks and others standing. The room is well-lit, and the walls are adorned with flags and banners. The video captures the atmosphere",
+                        "What message or purpose does the video convey?": "The video conveys a message of unity and cooperation among the people of the country."
+                    },
+                    "summary": "The video opens with a wide shot of a large, well-lit room filled with rows of wooden desks and chairs, indicating a conference or meeting. The room is adorned with a red carpet and a large screen displaying the text 'VUE' (VUE) in large, bold letters. The room is well-"
+                },
+                {
+                    "start": 10,
+                    "end": 15,
+                    "questions": {
+                        "What is happening in the video?": "A man in a suit and tie is standing at a podium in front of a wooden wall.",
+                        "What are the key visuals and sounds?": "The video shows a man in a dark suit standing at a podium, holding a microphone and speaking into it. The background is a wooden wall with a large screen displaying the text 'VOTE' and 'VOTE' in large white letters. The man appears to be speaking or making a speech, and",
+                        "What message or purpose does the video convey?": "The video conveys a message of unity and cooperation among the people, emphasizing the importance of unity and cooperation in the face of challenges and conflicts."
+                    },
+                    "summary": "A man in a dark suit stands at a podium in front of a wooden wall, holding a microphone. The background shows a large screen displaying the text 'VOTE' and 'VOTE' in large, bold letters. The man appears to be speaking or making a speech. The scene then transitions to"
+                },
+                {
+                    "start": 15,
+                    "end": 20,
+                    "questions": {
+                        "What is happening in the video?": "A man in a suit is speaking in a courtroom.",
+                        "What are the key visuals and sounds?": "The video shows a man in a dark suit standing in front of a wooden panel, speaking into a microphone. The background is blurred, but it appears to be a courtroom setting. The man is wearing a dark suit, tie, and a white shirt. The screen displays the text 'VVVVVVV",
+                        "What message or purpose does the video convey?": "The video conveys a formal and serious tone, possibly indicating a formal or official setting."
+                    },
+                    "summary": "A man in a suit and tie stands in front of a wooden panel, speaking into a microphone. The background is blurred, and the text 'VVVVVVVVVVVVVVVVVV' (VVVVVVVVVVVVVVV"
+                },
+                {
+                    "start": 20,
+                    "end": 25,
+                    "questions": {
+                        "What is happening in the video?": "A man in a suit is speaking in a courtroom.",
+                        "What are the key visuals and sounds?": "The video shows a man in a suit standing in front of a wooden panel, speaking into a microphone. The background is blurred, but it appears to be a courtroom setting. The man is wearing a dark suit with a white shirt and tie. The screen behind him shows a blue screen with the text 'VVV",
+                        "What message or purpose does the video convey?": "The video conveys a message of social media activism and the importance of social media in promoting and disseminating information."
+                    },
+                    "summary": "A man in a suit stands in front of a wooden wall, speaking into a microphone. The background is blurred, and the man is wearing a dark suit with a white shirt. The text 'VVVVVVVVVVVVVVVVVVVVVVVVV"
+                },
+                {
+                    "start": 25,
+                    "end": 30,
+                    "questions": {
+                        "What is happening in the video?": "A man in a dark suit and tie is standing at a podium in front of a wooden wall.",
+                        "What are the key visuals and sounds?": "The video shows a man in a dark suit standing behind a podium with a microphone. He is holding a black laptop and appears to be speaking or explaining something. The background is a wooden panel with the text 'VVVVVVVVVVVVVVVV' (VVV",
+                        "What message or purpose does the video convey?": "The video conveys a message of political commentary and political commentary."
+                    },
+                    "summary": "A man in a dark suit and tie stands at a podium in front of a wooden wall with the text 'VVVVVVVVVVVVVVVV' (VVVVVVVVVVVVVVVVVVVVVVV"
+                },
+                {
+                    "start": 30,
+                    "end": 35,
+                    "questions": {
+                        "What is happening in the video?": "A man in a dark suit and white shirt is standing at a podium with a microphone in front of him.",
+                        "What are the key visuals and sounds?": "The video shows a man in a dark suit and white shirt standing behind a podium with a microphone. The background is blurred, but it appears to be a formal setting. The man is speaking into the microphone, and the podium is white with a black base. The background shows a wooden wall with the text '",
+                        "What message or purpose does the video convey?": "The video conveys a sense of seriousness and seriousness, as indicated by the text 'QUESTION' and 'QUESTION' repeated multiple times."
+                    },
+                    "summary": "A man in a dark suit and white shirt stands behind a podium, holding a microphone. The background shows a wooden wall with a screen displaying the text 'QUESTION' in white letters. The man appears to be speaking or making a point. The scene then transitions to a close-up of a woman in"
+                },
+                {
+                    "start": 35,
+                    "end": 40,
+                    "questions": {
+                        "What is happening in the video?": "A man in a dark suit and white shirt is standing at a podium in front of a wooden wall.",
+                        "What are the key visuals and sounds?": "The video features a man in a dark suit standing behind a podium, holding a microphone. The background is blurred, suggesting a formal setting. The man is dressed in a dark suit with a white shirt and a dark tie. The podium is black with a white sign that reads 'VOTE' in red",
+                        "What message or purpose does the video convey?": "The video conveys a sense of seriousness and seriousness, as indicated by the text 'QUESTION' and 'QUESTION 1' in the bottom left corner."
+                    },
+                    "summary": "A man in a dark suit and white shirt stands behind a podium, holding a microphone. He is dressed in a dark suit with a white shirt and a tie. The background is a wooden wall with a screen displaying the text 'QUESTION' in white letters. The man appears to be speaking or making a"
+                },
+                {
+                    "start": 40,
+                    "end": 45,
+                    "questions": {
+                        "What is happening in the video?": "A man in a dark suit and tie is standing at a podium in front of a wooden wall.",
+                        "What are the key visuals and sounds?": "The video features a man in a dark suit and tie standing behind a podium, holding a laptop. The background is blurred, but it appears to be a formal setting. The man is seen speaking into the microphone, and the screen displays the time '08:42' and the date '201",
+                        "What message or purpose does the video convey?": "The video conveys a sense of seriousness and seriousness, as indicated by the text 'QUOTE' and 'QUOTE' in the bottom left corner."
+                    },
+                    "summary": "A man in a dark suit and tie stands at a podium in front of a wooden wall, holding a laptop. The background shows a wooden panel with a screen displaying text in Russian. The man appears to be speaking or presenting, and the screen shows a logo and the text 'ССС�"
+                },
+                {
+                    "start": 45,
+                    "end": 50,
+                    "questions": {
+                        "What is happening in the video?": "A man in a dark suit and tie is sitting at a desk in a courtroom.",
+                        "What are the key visuals and sounds?": "The video shows a man in a dark suit and tie standing behind a desk, holding a laptop. The background is blurred, but it appears to be a courtroom setting. The man is speaking into a microphone, and the screen shows the time '08:42' and the date '2019-",
+                        "What message or purpose does the video convey?": "The video conveys a sense of seriousness and seriousness, as indicated by the text 'VOTE' and 'VOTE' in the bottom left corner."
+                    },
+                    "summary": "A man in a dark suit and tie stands behind a podium, holding a laptop. The background shows a wooden wall with a screen displaying the text 'VOTE' and 'VOTE' in a different font. The man appears to be speaking or making a point. The scene then transitions to a wider"
+                },
+                {
+                    "start": 50,
+                    "end": 55,
+                    "questions": {
+                        "What is happening in the video?": "A man in a dark suit is sitting at a desk in a courtroom.",
+                        "What are the key visuals and sounds?": "The video features a man in a dark suit, white shirt, and tie, seated at a wooden desk with a laptop and a white chair. The background is blurred, focusing on the man and the desk. The scene transitions to a close-up of the man's face, showing a serious expression. The video then",
+                        "What message or purpose does the video convey?": "The video conveys a sense of seriousness and seriousness, as indicated by the text 'VOTE' and 'VOTE' in the bottom left corner."
+                    },
+                    "summary": "A man in a dark suit and tie is seated at a desk in a courtroom. He is holding a laptop and appears to be reading or working on a document. The courtroom is filled with people, including a judge and a witness. The man is surrounded by a crowd of people, including a woman in a white dress"
+                },
+                {
+                    "start": 55,
+                    "end": 60,
+                    "questions": {
+                        "What is happening in the video?": "A man is sitting in a courtroom, and a woman is sitting in front of him.",
+                        "What are the key visuals and sounds?": "The video features a formal event setting, with a person in a dark suit and tie standing at a podium, addressing the audience. The audience is seated in rows, some with their hands raised, and others seated in a semi-circle formation. The background is a formal setting with a wooden panel and potted plants",
+                        "What message or purpose does the video convey?": "The video conveys a sense of urgency and importance, as indicated by the text 'QUIC' (QUIC) and 'True Life' (True Life). It suggests that the video is part of a larger campaign or event, possibly related to a political or social issue. The video's content is likely aimed at raising"
+                    },
+                    "summary": "The video opens with a close-up of a man in a dark suit, sitting in a courtroom. The background shows a wooden panel with a screen displaying 'VOTE' and 'VOTE' in white text. The scene transitions to a wider shot of the same man, now in a suit, sitting"
+                }
+            ]
+        }
+    },
+    {
+        "chunk_path": "/home/vdsmart/khai/test_tech/Multi-modal-audio-visual-co-analysis-to-identify-complex-contexts-and-define-respective-responses/prototype_v1/video_chunks/chunk_0001.mp4",
+        "results": {
+            "video_path": "/home/vdsmart/khai/test_tech/Multi-modal-audio-visual-co-analysis-to-identify-complex-contexts-and-define-respective-responses/prototype_v1/video_chunks/chunk_0001.mp4",
+            "subtitles": "Hãy subscribe cho kênh Ghiền Mì Gõ Để không bỏ lỡ những video hấp dẫn",
+            "segments": [
+                {
+                    "start": 0,
+                    "end": 5,
+                    "questions": {
+                        "What is happening in the video?": "A man in a dark suit is sitting at a desk in a courtroom.",
+                        "What are the key visuals and sounds?": "The video shows a man in a dark suit and tie standing behind a desk, speaking into a microphone. The background is a wooden panel with a screen displaying the text 'VOTE' and 'TRUE' in English. The scene is set in a courtroom, with the man seated behind a desk, surrounded by",
+                        "What message or purpose does the video convey?": "The video conveys a sense of urgency and importance, as indicated by the text 'QUO' (QUOTE) and 'QUO' (QUOTE). It also suggests a call to action, as indicated by the text 'QUO' (QUOTE) and 'QUO' (QUOT"
+                    },
+                    "summary": "A man in a dark suit and tie is standing in front of a wooden wall, holding a laptop. He is speaking into a microphone, and the background shows a blurred image of a person. The text 'QUO' (Quiet) appears in the top left corner, indicating the voice-over. The scene"
+                },
+                {
+                    "start": 5,
+                    "end": 10,
+                    "questions": {
+                        "What is happening in the video?": "A man in a dark suit and tie is sitting at a desk in a courtroom.",
+                        "What are the key visuals and sounds?": "The video features a man in a dark suit and tie standing behind a desk, holding a laptop. The background is a plain wall with a wooden panel. The scene transitions to a close-up of the man's face, showing a serious expression. The video then shows a close-up of a laptop screen displaying the",
+                        "What message or purpose does the video convey?": "The video conveys a sense of seriousness and seriousness, as indicated by the text 'VOTE' and 'VOTE' in the bottom left corner."
+                    },
+                    "summary": "A man in a dark suit and tie is seated at a desk in a courtroom. He is holding a laptop and appears to be reading or working on a document. The courtroom is filled with people, including a judge and a witness. The man is surrounded by a crowd of people, including a woman in a white dress"
+                },
+                {
+                    "start": 10,
+                    "end": 15,
+                    "questions": {
+                        "What is happening in the video?": "A man in a dark suit is sitting at a desk in a courtroom.",
+                        "What are the key visuals and sounds?": "The video features a man in a dark suit and tie seated at a desk, with a laptop on the desk. The background is a wooden panel with a white desk and a white chair. The man appears to be speaking or presenting, and the screen shows the time '08:42' and the date '",
+                        "What message or purpose does the video convey?": "The video conveys a sense of seriousness and seriousness, as indicated by the text 'VOTE' and 'VOTE' in the bottom left corner."
+                    },
+                    "summary": "A man in a dark suit and tie is seated at a desk in a courtroom. He is holding a laptop and appears to be speaking or writing. The courtroom is filled with people, including a judge and a witness. The man is surrounded by a crowd of people, including a woman in a white dress. The courtroom"
+                },
+                {
+                    "start": 15,
+                    "end": 20,
+                    "questions": {
+                        "What is happening in the video?": "A man in a dark suit is sitting at a desk in a courtroom.",
+                        "What are the key visuals and sounds?": "The video features a man in a dark suit and tie seated at a desk, with a laptop open in front of him. The background is a wooden panel with a white desk and a white chair. The man appears to be speaking or writing something, and the screen shows the time '08:42' and",
+                        "What message or purpose does the video convey?": "The video conveys a sense of seriousness and seriousness, as indicated by the text 'VOTE' and 'VOTE' in the bottom left corner."
+                    },
+                    "summary": "A man in a dark suit and tie is seated at a desk in a courtroom. He is holding a laptop and appears to be reading or working on a document. The courtroom is filled with people, including a judge and a witness. The man is surrounded by a crowd of people, including a woman in a white dress"
+                },
+                {
+                    "start": 20,
+                    "end": 25,
+                    "questions": {
+                        "What is happening in the video?": "A man in a dark suit is sitting at a desk in a courtroom.",
+                        "What are the key visuals and sounds?": "The video features a man in a dark suit, white shirt, and dark tie, seated at a desk in a formal setting. The background is a wooden panel with the text 'VOTE' and 'VOTE' in a white font. The man appears to be speaking or making a point, with the",
+                        "What message or purpose does the video convey?": "The video conveys a sense of seriousness and seriousness, as indicated by the text 'VOTE' and 'VOTE' in the bottom left corner."
+                    },
+                    "summary": "A man in a dark suit and tie is seated at a desk in a courtroom. He is holding a piece of paper and appears to be speaking or writing. The courtroom is filled with people, including a judge and a witness. The man is surrounded by a crowd of people, including a woman in a white dress."
+                },
+                {
+                    "start": 25,
+                    "end": 30,
+                    "questions": {
+                        "What is happening in the video?": "A man in a dark suit and white shirt is sitting at a desk in a courtroom.",
+                        "What are the key visuals and sounds?": "The video features a man in a dark suit and white shirt seated at a wooden desk, with a laptop and a pen on the desk. The background is blurred, focusing on the man and the desk. The scene transitions to a close-up of the man's face, showing a serious expression. The video then cuts",
+                        "What message or purpose does the video convey?": "The video conveys a sense of seriousness and seriousness, as indicated by the text 'VOTE' and 'VOTE' in the bottom left corner."
+                    },
+                    "summary": "A man in a dark suit and white shirt stands behind a desk, holding a laptop. He is surrounded by a group of people, including a woman in a white dress, a man in a dark suit, and a woman in a black dress. The man appears to be speaking or explaining something. The background shows a"
+                },
+                {
+                    "start": 30,
+                    "end": 35,
+                    "questions": {
+                        "What is happening in the video?": "A man in a dark suit is sitting at a desk in a courtroom.",
+                        "What are the key visuals and sounds?": "The video features a man in a dark suit, white shirt, and tie, standing in front of a wooden panel. The panel is filled with people, including a woman in a white dress, a man in a dark suit, and a woman in a white dress. The man appears to be speaking or making a point",
+                        "What message or purpose does the video convey?": "The video conveys a sense of seriousness and seriousness, as indicated by the text 'VOTE' and 'VOTE' in the bottom left corner."
+                    },
+                    "summary": "A man in a dark suit and tie stands behind a podium, holding a microphone. The background shows a wooden wall with a screen displaying the text 'VOTE' and 'VOTE' in a different font. The man appears to be speaking or making a speech. The scene then transitions to a close"
+                },
+                {
+                    "start": 35,
+                    "end": 40,
+                    "questions": {
+                        "What is happening in the video?": "A man in a dark suit and tie is sitting at a desk in a courtroom.",
+                        "What are the key visuals and sounds?": "The video features a man in a dark suit, white shirt, and dark tie standing in front of a wooden paneled wall. The text 'VOTE' appears on the screen, indicating the man's decision to vote. The scene transitions to a close-up of the man's face, showing his expression and",
+                        "What message or purpose does the video convey?": "The video conveys a sense of seriousness and seriousness, as indicated by the text 'VOTE' and 'VOTE' in the bottom left corner."
+                    },
+                    "summary": "A man in a dark suit and tie stands behind a podium, holding a microphone. He is dressed in a dark suit with a white shirt and a dark tie. The background is a wooden wall with a screen displaying the text 'VOTE' in white letters. The man appears to be speaking or making a"
+                },
+                {
+                    "start": 40,
+                    "end": 45,
+                    "questions": {
+                        "What is happening in the video?": "A man in a dark suit is sitting at a desk in a courtroom.",
+                        "What are the key visuals and sounds?": "The video features a man in a dark suit, white shirt, and dark tie, seated at a wooden desk with a laptop and a white chair. The background is blurred, suggesting a formal setting. The man appears to be speaking or writing, and the screen shows the time '08:43' and the",
+                        "What message or purpose does the video convey?": "The video conveys a sense of seriousness and seriousness, as indicated by the text 'VOTE' and 'VOTE' in the bottom left corner."
+                    },
+                    "summary": "A man in a dark suit and tie is seated at a desk in a courtroom. He is holding a piece of paper and appears to be speaking or writing. The courtroom is filled with people, including a judge and a witness. The judge is wearing a dark suit and tie, and the witness is wearing a white shirt"
+                },
+                {
+                    "start": 45,
+                    "end": 50,
+                    "questions": {
+                        "What is happening in the video?": "A man in a dark suit is sitting at a desk in a courtroom.",
+                        "What are the key visuals and sounds?": "The video features a man in a dark suit, white shirt, and dark tie, seated at a desk in a formal setting. The background is a wooden panel with a white wall and a wooden door. The man appears to be speaking or writing, and the screen shows the time '08:43' and",
+                        "What message or purpose does the video convey?": "The video conveys a sense of seriousness and seriousness, as indicated by the text 'QUOTE' and 'QUOTE' in the bottom left corner."
+                    },
+                    "summary": "A man in a dark suit and tie stands behind a desk in a courtroom. The courtroom is filled with people, including a judge and a witness. The man is holding a document and appears to be speaking or explaining something. The courtroom is well-lit, and the walls are adorned with wooden paneling. The"
+                },
+                {
+                    "start": 50,
+                    "end": 55,
+                    "questions": {
+                        "What is happening in the video?": "A man in a dark suit and tie is sitting at a desk in a courtroom.",
+                        "What are the key visuals and sounds?": "The video features a man in a dark suit, white shirt, and tie, standing in front of a wooden paneled wall. The text 'VOTE' appears on the screen, indicating a vote. The scene transitions to a close-up of the man, who appears to be speaking or presenting. The background",
+                        "What message or purpose does the video convey?": "The video conveys a sense of seriousness and seriousness, as indicated by the text 'QUOTE' and 'QUOTE' in the bottom left corner."
+                    },
+                    "summary": "A man in a dark suit and tie stands behind a podium, holding a microphone. The background is a wooden wall with a screen displaying the text 'QUESTION' in white letters. The man appears to be speaking or making a point, as indicated by his gestures and the microphone. The scene then transitions to"
+                },
+                {
+                    "start": 55,
+                    "end": 60,
+                    "questions": {
+                        "What is happening in the video?": "A man in a dark suit and tie is sitting at a desk in a courtroom.",
+                        "What are the key visuals and sounds?": "The video features a man in a dark suit, white shirt, and tie standing in front of a wooden paneled wall. The text 'VOTE' appears on the screen, indicating a call to action. The scene transitions to a close-up of the man, who appears to be speaking or reacting to something",
+                        "What message or purpose does the video convey?": "The video conveys a sense of seriousness and seriousness, as indicated by the text 'VOTE' and 'VOTE' in the bottom left corner."
+                    },
+                    "summary": "A man in a dark suit and tie stands behind a podium, holding a laptop. The background shows a wooden wall with the text 'VOTE' and 'VOTE' in the top left corner. The man appears to be speaking or making a point. The scene then transitions to a close-up"
+                }
+            ]
+        }
+    },
+    {
+        "chunk_path": "/home/vdsmart/khai/test_tech/Multi-modal-audio-visual-co-analysis-to-identify-complex-contexts-and-define-respective-responses/prototype_v1/video_chunks/chunk_0002.mp4",
+        "results": {
+            "video_path": "/home/vdsmart/khai/test_tech/Multi-modal-audio-visual-co-analysis-to-identify-complex-contexts-and-define-respective-responses/prototype_v1/video_chunks/chunk_0002.mp4",
+            "subtitles": "Hãy subscribe cho kênh Ghiền Mì Gõ Để không bỏ lỡ những video hấp dẫn Các vị đại biểu quốc hội, đồng bào và cử tri cả nước đã quan tâm, theo dõi, hỗ trợ, đóng góp nhiều ý kiến quý báo để giúp cho toàn ngành thông tin và truyền thông có thể hoàn thành tốt các nhiệm vụ mà đảng, nhà nước và nhân dân giao phó. Và đặc biệt hôm nay, chúng tôi được trực tiếp nắng nghe, báo cáo với các vị đại biểu quốc hội về 3 nhóm vấn đề Hãy subscribe cho kênh Ghiền Mì Gõ Để không bỏ lỡ những video hấp dẫn",
+            "segments": [
+                {
+                    "start": 0,
+                    "end": 5,
+                    "questions": {
+                        "What is happening in the video?": "A man in a dark suit and tie is standing at a podium in front of a wooden wall.",
+                        "What are the key visuals and sounds?": "The video features a man in a dark suit and tie standing behind a podium, holding a piece of paper. The background is a wooden panel with a screen displaying the text 'VOTE' and 'VOTE' in a different font. The man appears to be speaking or making a point, and the",
+                        "What message or purpose does the video convey?": "The video conveys a formal and serious tone, possibly indicating a political or governmental context."
+                    },
+                    "summary": "A man in a dark suit and tie stands behind a podium, holding a piece of paper. The background is a wooden wall with a screen displaying the text 'VOTE' in white letters. The man appears to be speaking or making a point, as indicated by his gestures and the text on the screen."
+                },
+                {
+                    "start": 5,
+                    "end": 10,
+                    "questions": {
+                        "What is happening in the video?": "A man is sitting in a chair in a room, talking to a group of people.",
+                        "What are the key visuals and sounds?": "The video shows a man in a suit and tie standing in front of a podium, speaking into a microphone. The background is blurred, but it appears to be a formal setting. The man is wearing a white shirt and a dark tie, and the podium is white with a logo. The scene then transitions to",
+                        "What message or purpose does the video convey?": "The video conveys a sense of unity and cooperation among the students, highlighting the importance of the meeting and the collaborative spirit of the students."
+                    },
+                    "summary": "A man in a suit and tie is standing in front of a podium, speaking into a microphone. He is surrounded by a group of people, including a woman in a blue blazer and a man in a white shirt. The man in the suit is speaking into a microphone, while the woman in the blue bl"
+                },
+                {
+                    "start": 10,
+                    "end": 15,
+                    "questions": {
+                        "What is happening in the video?": "A man is sitting at a desk in a courtroom, speaking into a microphone.",
+                        "What are the key visuals and sounds?": "The video shows a man in a dark suit standing behind a podium, holding a microphone. The background is blurred, but it appears to be a courtroom setting. The man is speaking into the microphone, and the background shows a courtroom with a judge and other court officials. The scene is set in a courtroom, and",
+                        "What message or purpose does the video convey?": "The video conveys a message of political discourse and the importance of the press."
+                    },
+                    "summary": "A man in a dark suit and tie stands at a podium in front of a wooden wall, holding a microphone. The background shows a large screen displaying text in Russian. The man appears to be speaking or making a point, and the screen shows the text 'ССТАР�"
+                },
+                {
+                    "start": 15,
+                    "end": 20,
+                    "questions": {
+                        "What is happening in the video?": "A man in a dark suit and tie is sitting at a podium in front of a wooden wall.",
+                        "What are the key visuals and sounds?": "The video features a man in a dark suit and tie standing in front of a wooden panel, with the text 'VOTE' and 'VOTE' appearing on the screen. The scene transitions to a close-up of the man, who appears to be speaking or presenting. The background is blurred, and",
+                        "What message or purpose does the video convey?": "The video conveys a sense of seriousness and seriousness, as indicated by the text 'VOTE' and 'VOTE' in the bottom left corner."
+                    },
+                    "summary": "A man in a dark suit and tie stands behind a podium, holding a microphone. The background is a wooden wall with a screen displaying the text 'QUESTION' in white letters. The man is dressed in a dark suit with a white shirt and tie. The scene transitions to a wider shot of the man"
+                },
+                {
+                    "start": 20,
+                    "end": 25,
+                    "questions": {
+                        "What is happening in the video?": "A man in a dark suit is standing at a podium, speaking into a microphone.",
+                        "What are the key visuals and sounds?": "The video features a man in a dark suit, white shirt, and dark tie standing in front of a wooden paneled wall. The text 'VOTE' appears on the screen, indicating a call to action. The scene transitions to a close-up of the man, who is holding a microphone and speaking into",
+                        "What message or purpose does the video convey?": "The video conveys a sense of seriousness and seriousness, as indicated by the text 'VOTE' and 'VOTE' repeated multiple times."
+                    },
+                    "summary": "A man in a dark suit and tie stands at a podium in front of a wooden wall. He is holding a microphone and appears to be speaking or making a statement. The background is blurred, but it looks like a courtroom setting. The man is wearing a dark suit, white shirt, and dark tie. The"
+                },
+                {
+                    "start": 25,
+                    "end": 30,
+                    "questions": {
+                        "What is happening in the video?": "A man is sitting at a desk, talking to a group of people.",
+                        "What are the key visuals and sounds?": "The video features a man in a dark suit, white shirt, and tie, seated at a desk with a laptop. The scene transitions to a man in a checkered shirt, seated at a desk with a laptop, and a woman in a light-colored checkered shirt, seated at a desk with a",
+                        "What message or purpose does the video convey?": "The video conveys a sense of seriousness and seriousness, as indicated by the text 'VOTE' and 'VOTE' repeated multiple times."
+                    },
+                    "summary": "A man in a suit and tie is sitting at a desk in a formal setting, with a large screen behind him displaying a screen with a picture of a woman. The man is speaking into a microphone, and the screen shows a text message from 'Vincent'. The scene then transitions to a man in a che"
+                },
+                {
+                    "start": 30,
+                    "end": 35,
+                    "questions": {
+                        "What is happening in the video?": "A man in a suit and tie is standing at a podium in front of a wooden wall.",
+                        "What are the key visuals and sounds?": "The video shows a man in a dark suit and tie standing in front of a wooden panel, holding a piece of paper and a pen. The background is blurred, but it appears to be a courtroom setting. The man appears to be speaking or writing something, and the lighting is bright and even. The video concludes with",
+                        "What message or purpose does the video convey?": "The video conveys a message of respect and respect for the speaker, as indicated by the text 'VOTE' and 'VOTE' in the bottom left corner."
+                    },
+                    "summary": "A man in a dark suit and tie is standing in front of a wooden paneled wall, holding a piece of paper and a pen. He is speaking into a microphone, and the background shows a wooden paneled wall with a screen displaying text. The text reads 'VOTE' in large letters, followed by"
+                },
+                {
+                    "start": 35,
+                    "end": 40,
+                    "questions": {
+                        "What is happening in the video?": "A man in a dark suit is standing at a podium in front of a wooden wall.",
+                        "What are the key visuals and sounds?": "The video shows a man in a dark suit standing behind a podium, holding a piece of paper. The background is blurred, but it appears to be a courtroom setting. The man is wearing a dark suit, white shirt, and a tie. The podium is white with a black cloth on it. The background",
+                        "What message or purpose does the video convey?": "The video conveys a sense of seriousness and seriousness, as indicated by the text 'VOTE' and 'VOTE' in the bottom left corner."
+                    },
+                    "summary": "A man in a dark suit and tie stands behind a podium, holding a piece of paper. The background is a wooden wall with a screen displaying the text 'VOTE' in white letters. The man appears to be speaking or making a point, as indicated by his gestures and the text on the screen."
+                },
+                {
+                    "start": 40,
+                    "end": 45,
+                    "questions": {
+                        "What is happening in the video?": "A man in a dark suit and tie is sitting at a desk in a courtroom.",
+                        "What are the key visuals and sounds?": "The video features a man in a dark suit, white shirt, and blue tie standing in front of a wooden paneled wall. The text 'VOTE' appears on the screen, indicating a vote. The man appears to be speaking or making a statement, as indicated by the text 'VOTE' and",
+                        "What message or purpose does the video convey?": "The video conveys a sense of seriousness and seriousness, as indicated by the text 'VOTE' and 'VOTE' in the bottom left corner."
+                    },
+                    "summary": "A man in a dark suit and tie stands behind a podium, holding a microphone. He is dressed in a dark suit with a light blue shirt and a dark tie. The background is a wooden wall with a screen displaying the text 'VOTE' in white letters. The man appears to be speaking or making"
+                },
+                {
+                    "start": 45,
+                    "end": 50,
+                    "questions": {
+                        "What is happening in the video?": "A man in a dark suit is standing at a podium, speaking into a microphone.",
+                        "What are the key visuals and sounds?": "The video features a man in a dark suit standing behind a podium, holding a white paper. The background is a wooden panel with the text 'VOTE' and 'VOTE' in the top left corner. The man appears to be speaking or making a statement, as indicated by the text 'V",
+                        "What message or purpose does the video convey?": "The video conveys a formal and serious tone, possibly indicating a political or governmental context."
+                    },
+                    "summary": "A man in a dark suit and tie stands behind a podium, holding a piece of paper. He is surrounded by a crowd of people, some of whom are holding cameras. The man appears to be speaking or giving a speech, as indicated by the text on the podium. The background is a formal setting with"
+                },
+                {
+                    "start": 50,
+                    "end": 55,
+                    "questions": {
+                        "What is happening in the video?": "A man in a dark suit and tie is standing at a podium with a microphone in front of him.",
+                        "What are the key visuals and sounds?": "The video features a man in a dark suit and tie standing behind a podium, holding a white paper. The background is blurred, but it appears to be a formal setting, possibly a press conference or a formal event. The man appears to be speaking or making a statement, as indicated by the text on the pod",
+                        "What message or purpose does the video convey?": "The video conveys a formal and serious tone, possibly indicating a political or governmental context."
+                    },
+                    "summary": "A man in a dark suit and tie stands at a podium, holding a piece of paper. He is surrounded by microphones and a microphone stand. The background shows a wooden wall with a screen displaying text in Russian. The man appears to be speaking or giving a speech. The video ends with a close-up of"
+                },
+                {
+                    "start": 55,
+                    "end": 60,
+                    "questions": {
+                        "What is happening in the video?": "A man in a dark suit and tie is standing in front of a wooden panel, speaking into a microphone.",
+                        "What are the key visuals and sounds?": "The video features a man in a dark suit and tie standing in front of a wooden panel, holding a piece of paper. The background is blurred, suggesting a focus on the man and the panel. The text 'VOTE' appears in the top left corner, indicating the man's decision to vote. The scene",
+                        "What message or purpose does the video convey?": "The video conveys a sense of seriousness and seriousness, as indicated by the text 'VOTE' and 'VOTE' repeated multiple times."
+                    },
+                    "summary": "A man in a dark suit and tie stands behind a podium, holding a piece of paper. The background is a wooden wall with a screen displaying the text 'VOTE' in white letters. The man appears to be speaking or making a point. The scene then transitions to a close-up of a woman"
+                }
+            ]
+        }
+    },
+    {
+        "chunk_path": "/home/vdsmart/khai/test_tech/Multi-modal-audio-visual-co-analysis-to-identify-complex-contexts-and-define-respective-responses/prototype_v1/video_chunks/chunk_0003.mp4",
+        "results": {
+            "video_path": "/home/vdsmart/khai/test_tech/Multi-modal-audio-visual-co-analysis-to-identify-complex-contexts-and-define-respective-responses/prototype_v1/video_chunks/chunk_0003.mp4",
+            "subtitles": "Định hướng dư luận xã hội, tạo sự đồng thuận và niềm tin xã hội, khơi dậy tất vọng Việt Nam và biến nó thành sức mạnh tinh thần to lớn, góp phần quan trọng trong thúc đẩy phát triển kinh tế xã hội của đất nước. Thủ tướng Chính phủ đã ban hành chiến đợt chuyển đổi số báo chí, coi không gian mạng là mặt trận chính của báo chí. Hãy subscribe cho kênh Ghiền Mì Gõ Để không bỏ lỡ những video hấp dẫn Thứ hai, trong thời gian qua, Bộ Thông tin và Truyền thông đã tăng cường giám sát hoạt động quảng cáo trên báo chí và trên môi trường mạng, phối hợp với các bộ ngành liên quan như y tế, công thương, đẩy mạnh các biện pháp kỹ thuật về gia quét, phát hiện các quảng cáo vi phạm pháp luật, phát hiện các biện pháp kỹ thuật về gia quét, phát hiện các quảng cáo vi phạm pháp luật, phối hợp với các bộ ngành liên quan như y tế, công thương, đẩy mạnh các biện pháp kỹ thuật về gia quét, phát hiện các quảng cáo vi phạm pháp luật, phối hợp với các bộ ngành liên quan như y tế, công thương, đẩy mạnh các biện pháp kỹ thuật về gia quét, phát hiện các quảng cáo vi phạm pháp luật, phối hợp với các bộ ngành liên quan như y tế, công thương, đẩy mạnh các biện pháp kỹ thuật về gia quét, phát hiện các quảng cáo vi pháp luật, phối hợp với các bộ ngành liên quan như y tế, công thương, đẩy mạnh các biện pháp kỹ thuật về gia quét, phối hợp với các bộ ngành liên quan như y tế, công thương, đẩy mạnh các biện pháp kỹ thuật về gia quét, phối hợp với các bộ ngành liên quan như y tế, công thương, đẩy mạnh các bộ ngành liên quan như y tế, Hãy subscribe cho kênh Ghiền M hộ kênh của chúng mình nhé.",
+            "segments": [
+                {
+                    "start": 0,
+                    "end": 5,
+                    "questions": {
+                        "What is happening in the video?": "A man in a dark suit is sitting at a desk in front of a wooden wall.",
+                        "What are the key visuals and sounds?": "The video features a man in a dark suit and tie standing in front of a wooden panel, holding a piece of paper. The background is blurred, suggesting a focus on the man and the panel. The scene transitions to a close-up of the man, who appears to be speaking or reacting to something. The video",
+                        "What message or purpose does the video convey?": "The video conveys a sense of seriousness and seriousness, as indicated by the text 'VOTE' and 'VOTE' repeated multiple times."
+                    },
+                    "summary": "A man in a dark suit and tie stands behind a podium, holding a piece of paper. The background is a wooden wall with a screen displaying the text 'VOTE' in white letters. The man appears to be speaking or making a point, as indicated by the text on the screen. The scene then"
+                },
+                {
+                    "start": 5,
+                    "end": 10,
+                    "questions": {
+                        "What is happening in the video?": "A man in a dark suit is sitting at a desk in front of a wooden panel.",
+                        "What are the key visuals and sounds?": "The video features a man in a dark suit and tie standing in front of a wooden panel, holding a white piece of paper. The background is blurred, suggesting a focus on the man and the paper. The scene then transitions to a close-up of the man, who appears to be speaking or reacting to something.",
+                        "What message or purpose does the video convey?": "The video conveys a sense of seriousness and seriousness, as indicated by the text 'VOTE' and 'VOTE' in the bottom left corner."
+                    },
+                    "summary": "A man in a dark suit and tie stands behind a podium, holding a microphone. The background shows a wooden wall with a screen displaying the text 'VOTE' and 'VOTE' in a different font. The man appears to be speaking or making a speech. The scene then transitions to a close"
+                },
+                {
+                    "start": 10,
+                    "end": 15,
+                    "questions": {
+                        "What is happening in the video?": "A man in a suit is sitting at a desk in a courtroom.",
+                        "What are the key visuals and sounds?": "The video shows a man in a dark suit and tie standing in front of a wooden panel, with the text 'VOTE' in the top left corner. The scene transitions to a close-up of a woman in a white shirt and black tie, speaking into a microphone. The background shows a wooden panel with",
+                        "What message or purpose does the video convey?": "The video conveys a sense of urgency and importance, as indicated by the text 'VOTE' and 'VOTE' in the bottom right corner."
+                    },
+                    "summary": "A man in a dark suit and tie is standing in front of a wooden panel, speaking into a microphone. The background shows a blurred view of a building with a sign that reads 'VOTA' and 'VOTA' in English. The man appears to be giving a speech or presentation. The scene then"
+                },
+                {
+                    "start": 15,
+                    "end": 20,
+                    "questions": {
+                        "What is happening in the video?": "A man in a dark suit is standing at a podium, speaking into a microphone.",
+                        "What are the key visuals and sounds?": "The video features a man in a dark suit and tie standing in front of a wooden panel, holding a white piece of paper. The background is blurred, suggesting a focus on the man and the paper. The scene transitions to a close-up of the man, who appears to be speaking or writing. The video then",
+                        "What message or purpose does the video convey?": "The video conveys a sense of seriousness and seriousness, as indicated by the text 'VOTE' and 'VOTE' repeated multiple times."
+                    },
+                    "summary": "A man in a dark suit and tie stands behind a podium, holding a piece of paper. The background is a wooden wall with a screen displaying the text 'VOTE' in white letters. The man appears to be speaking or making a point, as indicated by the text on the screen. The scene then"
+                },
+                {
+                    "start": 20,
+                    "end": 25,
+                    "questions": {
+                        "What is happening in the video?": "A man in a dark suit and tie is speaking at a podium.",
+                        "What are the key visuals and sounds?": "The video features a man in a dark suit, white shirt, and tie, standing in front of a wooden paneled wall. The text 'VOTE' appears on the screen, indicating a call to action. The scene transitions to a close-up of the man, who is holding a white paper and appears",
+                        "What message or purpose does the video convey?": "The video conveys a sense of seriousness and seriousness, as indicated by the text 'VOTE' and 'VOTE' repeated multiple times."
+                    },
+                    "summary": "A man in a dark suit and tie stands behind a wooden podium, holding a microphone. The background shows a blurred image of a person. The text 'VOTE' appears on the screen, indicating the man's decision to vote. The scene then transitions to a close-up of the man, who is"
+                },
+                {
+                    "start": 25,
+                    "end": 30,
+                    "questions": {
+                        "What is happening in the video?": "A man in a dark suit is sitting at a desk in a courtroom.",
+                        "What are the key visuals and sounds?": "The video features a man in a dark suit, white shirt, and tie, seated at a desk with a laptop and papers. The background is a wooden panel with a screen displaying the text 'VOTE' and 'VOTE' in a different font. The scene transitions to a wider shot of the man",
+                        "What message or purpose does the video convey?": "The video conveys a sense of seriousness and seriousness, as indicated by the text 'VOTE' and 'VOTE' repeated multiple times."
+                    },
+                    "summary": "A man in a dark suit and tie stands at a podium, holding a microphone. He is surrounded by other people, some of whom are seated and others standing. The podium is white with a black screen and a microphone. The background is a wooden wall with a screen displaying the text 'VOTE'"
+                },
+                {
+                    "start": 30,
+                    "end": 35,
+                    "questions": {
+                        "What is happening in the video?": "A man in a suit is sitting at a podium in a courtroom.",
+                        "What are the key visuals and sounds?": "The video shows a man in a dark suit standing behind a podium with a microphone, holding a piece of paper. The background is a wooden wall with a screen displaying the text 'VOTE' and 'TRUE' in English. The scene then transitions to a man in a dark suit standing behind a pod",
+                        "What message or purpose does the video convey?": "The video conveys a message of unity and cooperation in the context of the COVID-19 pandemic."
+                    },
+                    "summary": "A group of people are gathered in a room, with a man in a suit and tie standing at a podium. The room is filled with people, including a woman in a white shirt and a man in a blue shirt. The man in the suit is holding a microphone and speaking into it. The background shows a"
+                },
+                {
+                    "start": 35,
+                    "end": 40,
+                    "questions": {
+                        "What is happening in the video?": "A man in a dark suit and tie is speaking at a podium.",
+                        "What are the key visuals and sounds?": "The video shows a man in a dark suit and tie standing in front of a wooden panel, speaking into a microphone. The background is blurred, but it appears to be a courtroom setting. The man is holding a piece of paper and appears to be speaking or writing something. The scene transitions to a close-up of",
+                        "What message or purpose does the video convey?": "The video conveys a formal and serious tone, possibly indicating a political or governmental context."
+                    },
+                    "summary": "A man in a dark suit and tie stands behind a podium, holding a microphone. The background shows a wooden wall with a clock and a watermark. The man appears to be speaking or making a speech. The scene then transitions to a man in a dark suit standing in front of a wooden wall with a clock"
+                },
+                {
+                    "start": 40,
+                    "end": 45,
+                    "questions": {
+                        "What is happening in the video?": "A man in a dark suit and tie is standing in front of a wooden panel.",
+                        "What are the key visuals and sounds?": "The video shows a man in a dark suit and tie standing in front of a wooden panel, holding a white paper. The background is blurred, and the text 'VOTE' appears on the screen. The man appears to be speaking or making a statement, and the background shows a wooden panel with a screen displaying",
+                        "What message or purpose does the video convey?": "The video conveys a formal and serious tone, possibly indicating a political or governmental context."
+                    },
+                    "summary": "A man in a dark suit and tie stands behind a podium, holding a microphone. The background shows a wooden wall with a clock and a watermark 'VVVVVVVVVVVVVVVV' in the top left corner. The man appears to be speaking or making a"
+                },
+                {
+                    "start": 45,
+                    "end": 50,
+                    "questions": {
+                        "What is happening in the video?": "A man in a dark suit and tie is standing in front of a wooden paneled wall.",
+                        "What are the key visuals and sounds?": "The video features a man in a dark suit and tie standing in front of a wooden panel, holding a piece of paper. The background is blurred, suggesting a focus on the man and the paper. The scene then transitions to a close-up of the man, who is now wearing a white shirt and a dark tie",
+                        "What message or purpose does the video convey?": "The video conveys a formal and serious tone, possibly indicating a political or governmental context."
+                    },
+                    "summary": "A man in a dark suit and tie stands behind a podium, holding a microphone. The background shows a wooden wall with a clock and a watermark. The man appears to be speaking or making a speech. The scene then transitions to a close-up of a person in a dark suit and tie, standing in"
+                },
+                {
+                    "start": 50,
+                    "end": 55,
+                    "questions": {
+                        "What is happening in the video?": "A man in a dark suit is speaking at a podium.",
+                        "What are the key visuals and sounds?": "The video features a man in a dark suit, white shirt, and tie standing in front of a wooden paneled wall. The text 'VOTE' appears on the screen, indicating a call to action. The scene transitions to a close-up of the man, who is now wearing a white shirt and a",
+                        "What message or purpose does the video convey?": "The video conveys a sense of seriousness and seriousness, as indicated by the text 'VOTE' and 'VOTE' in the bottom left corner. It also shows a close-up of a person speaking, suggesting a moment of discussion or debate."
+                    },
+                    "summary": "A man in a dark suit and tie stands in front of a wooden panel, holding a laptop. The background shows a blurred image of a person. The text 'VOTA' (VOTE) appears on the screen, indicating the man's role in the election process. The man is then seen speaking into"
+                },
+                {
+                    "start": 55,
+                    "end": 60,
+                    "questions": {
+                        "What is happening in the video?": "A man in a dark suit and tie is speaking at a podium.",
+                        "What are the key visuals and sounds?": "The video features a man in a dark suit, white shirt, and tie, seated at a podium with a microphone. The background is a wooden panel with the text 'VOTE' and 'VOTE' in a different font. The man appears to be speaking or making a statement, as indicated by",
+                        "What message or purpose does the video convey?": "The video conveys a formal and serious tone, possibly indicating a political or governmental context."
+                    },
+                    "summary": "A man in a dark suit and tie stands behind a podium, holding a microphone. The background shows a wooden wall with a screen displaying the text 'VOTE' and 'VOTE' in a different font. The man appears to be speaking or making a speech. The scene then transitions to a close"
+                }
+            ]
+        }
+    },
+    {
+        "chunk_path": "/home/vdsmart/khai/test_tech/Multi-modal-audio-visual-co-analysis-to-identify-complex-contexts-and-define-respective-responses/prototype_v1/video_chunks/chunk_0004.mp4",
+        "results": {
+            "video_path": "/home/vdsmart/khai/test_tech/Multi-modal-audio-visual-co-analysis-to-identify-complex-contexts-and-define-respective-responses/prototype_v1/video_chunks/chunk_0004.mp4",
+            "subtitles": "Hãy subscribe cho kênh Ghiền Mì Gõ Để không bỏ lỡ những video hấp dẫn Thứ ba, lĩnh vực viễn thông đang bước vào công cuộc đổi mới lần hai. Hạ tầng viễn thông chuyển đổi thành hạ tầng số, thành hạ tầng của nền kinh tế số. Hạ tầng số Việt Nam bao gồm hạ tầng viễn thông, Internet, hạ tầng dữ liệu và hạ tầng vật lý số, hạ tầng đề biểu, hạ tầng đề biểu, hạ tầng đề biểu, hạ tầng đề biểu, hạ tầng đề biểu, hạ tầng đề biểu, hạ tầng đề biểu, hạ tầng đề biểu, hạ tầng đề biểu, hạ tầng đề biểu, hạ tầng đề biểu, hạ tầng đề biểu, hạ tầng đề biểu, hạ tầng đề biểu, hạ tầng đề biểu, hạ tầng đề biểu, hạ tầng đề biểu, hạ tầng đề biểu, hạ tầng đề biểu, hạ tầng đề biểu, hạ tầng đề biểu, hạ tầng đề biểu, hạ tầng đề biểu, hạ tầng đề biểu, hạ tầng đề biểu, hạ tầng đề biểu, hạ tầng đề biểu, hạ tầng đề biểu, hạ tầng đề biểu, hạ tầng đề biểu, hạ tầng đề biểu, hạ tầng đề biểu, hạ tầng đề biểu, hạ tầng số Việt Nam bao gồm hạ tầng viễn thông, Internet, hạ tầng dữ liệu và hạ tầng vật lý số, hạ tầng để biến thế giới vật lý thành thế giới số. Tổng bí thư Tô Lâm đã nhấn mạnh hạ tầng số là hạ tầng chiến lược, giống như hạ tầng giao thông và điện, phát đầu tư đi trước để phục vụ chuyển đổi số quốc gia, phát triển kinh tế số và giá hội số, phải thuộc top 50 thế giới vào năm 2030 và top 30 vào năm 2030. Hãy subscribe cho kênh Ghiền Mì Gõ Để không bỏ lỡ những video hấp dẫn",
+            "segments": [
+                {
+                    "start": 0,
+                    "end": 5,
+                    "questions": {
+                        "What is happening in the video?": "A man in a dark suit and tie is standing in front of a wooden panel.",
+                        "What are the key visuals and sounds?": "The video features a man in a dark suit and tie standing in front of a wooden panel, holding a piece of paper and a pen. The background is blurred, suggesting a focus on the man and the panel. The scene transitions to a close-up of the man, who appears to be speaking or presenting. The",
+                        "What message or purpose does the video convey?": "The video conveys a formal and serious tone, possibly indicating a political or governmental context."
+                    },
+                    "summary": "A man in a dark suit and tie stands behind a podium, holding a microphone. The background shows a wooden wall with a clock and some text. The man appears to be speaking or making a speech, as indicated by the text on the screen. The scene then transitions to a close-up of a man in"
+                },
+                {
+                    "start": 5,
+                    "end": 10,
+                    "questions": {
+                        "What is happening in the video?": "A man is standing in front of a crowd of people, speaking into a microphone.",
+                        "What are the key visuals and sounds?": "The video features a man in a dark suit and tie standing in front of a wooden panel, holding a microphone. The scene transitions to a close-up of a person in a dark suit and tie, speaking into a microphone. The background shows a wooden panel with a screen displaying text in Vietnamese. The video then shows",
+                        "What message or purpose does the video convey?": "The video conveys a message of unity and solidarity among the people, emphasizing the importance of unity and solidarity in the face of adversity."
+                    },
+                    "summary": "A man in a suit stands in front of a wooden panel, holding a microphone. The scene transitions to a man in a suit standing in front of a wooden panel, holding a microphone. The scene then shifts to a man in a suit standing in front of a wooden panel, holding a microphone. The scene then transitions"
+                },
+                {
+                    "start": 10,
+                    "end": 15,
+                    "questions": {
+                        "What is happening in the video?": "A man in a dark suit is sitting at a desk in a courtroom.",
+                        "What are the key visuals and sounds?": "The video shows a man in a dark suit and tie standing in front of a wooden panel, speaking into a microphone. The background is blurred, but it appears to be a courtroom setting. The man is holding a piece of paper and appears to be giving a speech or presentation. The video also shows a close-up",
+                        "What message or purpose does the video convey?": "The video conveys a message of unity and cooperation among the people, emphasizing the importance of unity and cooperation in achieving a common goal."
+                    },
+                    "summary": "A man in a dark suit and tie is seated at a desk in a courtroom. He is holding a piece of paper and appears to be speaking or writing something. The courtroom is filled with people, including a woman in a white shirt, a man in a suit, and a woman in a black dress. The man"
+                },
+                {
+                    "start": 15,
+                    "end": 20,
+                    "questions": {
+                        "What is happening in the video?": "A man in a dark suit and tie is speaking at a podium.",
+                        "What are the key visuals and sounds?": "The video features a man in a dark suit and tie standing behind a podium, speaking into a microphone. The background is a wooden panel with the text 'VOTE' and 'VOTE' in English. The man appears to be addressing the audience, as indicated by the text 'VOTE'",
+                        "What message or purpose does the video convey?": "The video conveys a formal and serious tone, possibly indicating a political or governmental context."
+                    },
+                    "summary": "A man in a dark suit and tie stands behind a podium, holding a microphone. The background shows a wooden wall with a clock and some text. The man appears to be speaking or making a speech, as indicated by the text on the screen. The scene then transitions to a close-up of a man in"
+                },
+                {
+                    "start": 20,
+                    "end": 25,
+                    "questions": {
+                        "What is happening in the video?": "A man in a dark suit and tie is sitting at a desk in front of a wooden panel.",
+                        "What are the key visuals and sounds?": "The video features a man in a dark suit and tie standing in front of a wooden panel, holding a microphone. The background is blurred, but it appears to be a courtroom setting. The man appears to be speaking or making a statement, as indicated by the text 'VOTE' and 'VOTE'",
+                        "What message or purpose does the video convey?": "The video conveys a formal and serious tone, possibly indicating a political or governmental context."
+                    },
+                    "summary": "A man in a dark suit and tie stands behind a podium, holding a microphone. He is speaking into a microphone, and the background shows a wooden wall with a screen displaying the text 'VOTE' and 'VOTE' in a different font. The man is wearing a dark tie and a white"
+                },
+                {
+                    "start": 25,
+                    "end": 30,
+                    "questions": {
+                        "What is happening in the video?": "A man in a dark suit and tie is speaking at a podium.",
+                        "What are the key visuals and sounds?": "The video features a man in a dark suit and tie standing in front of a wooden panel, holding a white piece of paper and a pen. The background is blurred, suggesting a focus on the man and the paper. The scene then transitions to a close-up of the man, who appears to be speaking or writing",
+                        "What message or purpose does the video convey?": "The video conveys a formal and serious tone, possibly indicating a political or governmental context."
+                    },
+                    "summary": "A man in a dark suit and tie stands behind a podium, holding a microphone. He is speaking into a microphone, and the background shows a wooden wall with a screen displaying the text 'VOTE' and 'VOTE' in English. The man is wearing a dark suit with a light blue tie"
+                },
+                {
+                    "start": 30,
+                    "end": 35,
+                    "questions": {
+                        "What is happening in the video?": "A man in a dark suit and tie is sitting at a podium in front of a wooden wall. He is holding a microphone and speaking into it.",
+                        "What are the key visuals and sounds?": "The video features a man in a dark suit and tie standing in front of a wooden panel, holding a microphone and speaking into it. The background is blurred, suggesting a formal setting. The man appears to be addressing the audience, as indicated by the text 'VOTE' and 'VOTE' in the",
+                        "What message or purpose does the video convey?": "The video conveys a message of political discourse and the importance of the press in the media."
+                    },
+                    "summary": "A man in a dark suit and tie stands behind a podium, holding a microphone. He is speaking into a microphone, and the background shows a wooden wall with a clock. The text 'VOTE' appears on the screen, indicating the man's decision to vote. The scene then transitions to a close-"
+                },
+                {
+                    "start": 35,
+                    "end": 40,
+                    "questions": {
+                        "What is happening in the video?": "A man in a dark suit and tie is standing in front of a wooden panel, speaking into a microphone.",
+                        "What are the key visuals and sounds?": "The video features a man in a dark suit and tie standing in front of a wooden panel, holding a microphone. The background is blurred, but it appears to be a courtroom setting. The man appears to be speaking or making a point, and the courtroom scene is blurred, indicating a focus on the man's actions.",
+                        "What message or purpose does the video convey?": "The video conveys a sense of seriousness and seriousness, as indicated by the text 'VOTE' and 'VOTE' repeated multiple times."
+                    },
+                    "summary": "A man in a dark suit and tie stands at a podium, holding a microphone. He is surrounded by other people, some of whom are seated and others standing. The background shows a wooden wall with a screen displaying the text 'VOTE' and 'VOTE' in a different font. The man"
+                },
+                {
+                    "start": 40,
+                    "end": 45,
+                    "questions": {
+                        "What is happening in the video?": "A man is sitting at a podium in a courtroom, speaking into a microphone.",
+                        "What are the key visuals and sounds?": "The video shows a man in a dark suit standing in front of a wooden panel, holding a piece of paper. The background is blurred, but it appears to be a courtroom setting. The man appears to be speaking, with the text 'VOTA' visible in the bottom right corner. The scene then transitions to",
+                        "What message or purpose does the video convey?": "The video conveys a message of unity and cooperation among the people, emphasizing the importance of unity and cooperation in the context of the COVID-19 pandemic."
+                    },
+                    "summary": "A group of people are sitting in a room, with a man in a suit and tie standing in front of them. The room is filled with people, including a woman in a white shirt and a man in a dark suit. The man in the suit is speaking, and the woman is listening attentively. The scene is"
+                },
+                {
+                    "start": 45,
+                    "end": 50,
+                    "questions": {
+                        "What is happening in the video?": "A man in a dark suit and tie is sitting at a desk in front of a wooden panel. He is holding a piece of paper and appears to be speaking or writing something.",
+                        "What are the key visuals and sounds?": "The video features a man in a dark suit and tie seated at a wooden desk, with a microphone in front of him. The background is blurred, suggesting a formal setting. The man appears to be speaking or presenting, and the microphone is being held by another individual. The scene transitions to a close-up of the",
+                        "What message or purpose does the video convey?": "The video conveys a formal and serious tone, possibly indicating a political or governmental context."
+                    },
+                    "summary": "A man in a dark suit and tie stands behind a podium, holding a microphone. He is seated at a wooden desk with a laptop and papers. The background shows a blurred image of a person. The scene then transitions to a man in a dark suit and tie standing in front of a wooden wall, holding a"
+                },
+                {
+                    "start": 50,
+                    "end": 55,
+                    "questions": {
+                        "What is happening in the video?": "A man in a dark suit and tie is sitting at a desk in a courtroom. He is holding a piece of paper and appears to be speaking or writing something.",
+                        "What are the key visuals and sounds?": "The video features a man in a dark suit and tie seated at a wooden desk, with a microphone in front of him. The background is blurred, suggesting a formal setting. The man appears to be speaking or presenting, and the microphone is being held by another individual. The scene transitions to a close-up of the",
+                        "What message or purpose does the video convey?": "The video conveys a formal and serious tone, emphasizing the importance of the person's role in the political process."
+                    },
+                    "summary": "A man in a dark suit and tie is seated at a wooden desk, holding a white piece of paper and a pen. He is surrounded by microphones and a large screen displaying the text 'VOTE' and 'VOTE' in a foreign language. The background shows a blurred image of a person in a"
+                },
+                {
+                    "start": 55,
+                    "end": 60,
+                    "questions": {
+                        "What is happening in the video?": "A man in a dark suit and tie is standing at a podium in front of a wooden wall.",
+                        "What are the key visuals and sounds?": "The video features a man in a dark suit and tie standing in front of a wooden panel, holding a piece of paper and a pen. The background is blurred, suggesting a formal setting. The man appears to be speaking or writing something, and the lighting is bright and even. The text 'VOTE' appears",
+                        "What message or purpose does the video convey?": "The video conveys a formal and serious tone, possibly indicating a political or governmental context."
+                    },
+                    "summary": "A man in a dark suit and tie stands behind a podium, holding a microphone. He is dressed in a dark suit with a white shirt and tie. The background shows a wooden wall with a screen displaying the text 'VOTE' and 'VOTE' in white letters. The man appears to be"
+                }
+            ]
+        }
+    },
+    {
+        "chunk_path": "/home/vdsmart/khai/test_tech/Multi-modal-audio-visual-co-analysis-to-identify-complex-contexts-and-define-respective-responses/prototype_v1/video_chunks/chunk_0005.mp4",
+        "results": {
+            "video_path": "/home/vdsmart/khai/test_tech/Multi-modal-audio-visual-co-analysis-to-identify-complex-contexts-and-define-respective-responses/prototype_v1/video_chunks/chunk_0005.mp4",
+            "subtitles": "Hãy subscribe cho kênh Ghiền Mì Gõ Để không bỏ lỡ những video hấp dẫn Chúng tôi luôn coi những tồn tại hạn chế này là động lực để thúc đẩy phát triển ngành. Các vấn đề mà các vị đại biểu quốc hội sẽ nêu ra ngày hôm nay, chúng tôi luôn coi những tồn tại hạn chế này là động lực để thúc đẩy phát triển ngành. Các vấn đề mà các vị đại biểu quốc hội sẽ nêu ra ngày hôm nay dưới các câu nhìn khác nhau, cách tiếp cận khác nhau, trong các ngữ cảnh khác nhau chắc chắn sẽ giúp chúng tôi nhìn thấy rõ hơn và toàn cảnh hơn về ngành mình, nhìn thấy rõ hơn về các ngữ cảnh khác nhau. Hãy subscribe cho kênh Ghiền Mì Gõ Để không bỏ lỡ những video hấp dẫn Các bạn hãy đ ta nhất định sẽ thực hiện thành công của cách mạng chuyển đổi số.",
+            "segments": [
+                {
+                    "start": 0,
+                    "end": 5,
+                    "questions": {
+                        "What is happening in the video?": "A man in a dark suit and tie is standing in front of a wooden panel, holding a piece of paper.",
+                        "What are the key visuals and sounds?": "The video features a man in a dark suit and tie standing in front of a wooden panel, holding a piece of paper and speaking. The background is blurred, suggesting a formal setting. The text 'VOTA' (VOTE) is visible in the top left corner, and the time '08:",
+                        "What message or purpose does the video convey?": "The video conveys a formal and serious tone, possibly indicating a political or governmental context."
+                    },
+                    "summary": "A man in a dark suit and tie stands behind a podium, holding a piece of paper. He is surrounded by microphones and a microphone stand. The background shows a wooden wall with a screen displaying text in Russian. The man appears to be speaking or giving instructions. The scene then transitions to a wider shot of the"
+                },
+                {
+                    "start": 5,
+                    "end": 10,
+                    "questions": {
+                        "What is happening in the video?": "A man in a dark suit and tie is sitting at a podium, holding a piece of paper and speaking into a microphone.",
+                        "What are the key visuals and sounds?": "The video features a man in a dark suit and tie standing in front of a wooden panel, holding a piece of paper and a microphone. The background is blurred, suggesting a formal setting. The man appears to be speaking or writing, and the microphone is raised. The scene transitions to a close-up of the man",
+                        "What message or purpose does the video convey?": "The video conveys a message of respect and respect for the speaker, as indicated by the text 'VOTE' and 'VOTE' in the bottom left corner."
+                    },
+                    "summary": "A man in a dark suit and tie is standing in front of a wooden wall, holding a piece of paper and a pen. He is speaking into a microphone, and the background shows a wooden wall with a screen displaying text. The man appears to be giving a speech or presentation."
+                },
+                {
+                    "start": 10,
+                    "end": 15,
+                    "questions": {
+                        "What is happening in the video?": "A man in a suit and tie is standing behind a podium, holding a piece of paper.",
+                        "What are the key visuals and sounds?": "The video features a man in a dark suit and tie standing in front of a wooden panel, holding a piece of paper and a pen. The background is blurred, suggesting a formal setting. The man appears to be speaking or presenting, and the screen shows a timestamp '08:46' and a voice-",
+                        "What message or purpose does the video convey?": "The video conveys a formal and serious tone, possibly indicating a political or governmental context."
+                    },
+                    "summary": "A man in a dark suit and tie stands behind a podium, holding a piece of paper. The background is a wooden wall with a screen displaying the text 'VOTE' in white letters. The man appears to be speaking or making a point, as indicated by the text on the screen. The scene then"
+                },
+                {
+                    "start": 15,
+                    "end": 20,
+                    "questions": {
+                        "What is happening in the video?": "A man in a dark suit and tie is standing in front of a wooden panel.",
+                        "What are the key visuals and sounds?": "The video features a man in a dark suit and tie standing in front of a wooden panel, holding a white piece of paper. The background is blurred, suggesting a focus on the man and the paper. The text 'VOTE' appears in the top left corner, indicating the man's decision to vote. The",
+                        "What message or purpose does the video convey?": "The video conveys a formal and serious tone, possibly indicating a political or governmental context."
+                    },
+                    "summary": "A man in a dark suit and tie stands behind a podium, holding a microphone. He is dressed in a dark suit with a light blue tie. The background is a wooden wall with a screen displaying the text 'VOTE' in white letters. The man appears to be speaking or making a speech. The"
+                },
+                {
+                    "start": 20,
+                    "end": 25,
+                    "questions": {
+                        "What is happening in the video?": "A man in a dark suit and tie is standing in front of a wooden panel.",
+                        "What are the key visuals and sounds?": "The video features a man in a dark suit and tie standing in front of a wooden panel, holding a piece of paper. The background is blurred, suggesting a focus on the man and the paper. The scene transitions to a close-up of the man, who appears to be speaking or presenting. The video then shows",
+                        "What message or purpose does the video convey?": "The video conveys a formal and serious tone, possibly indicating a political or governmental setting."
+                    },
+                    "summary": "A man in a dark suit and tie stands behind a podium, holding a microphone. The background is a wooden wall with a screen displaying the text 'VOTE' in white letters. The man appears to be speaking or making a speech. The scene then transitions to a close-up of a woman in a"
+                },
+                {
+                    "start": 25,
+                    "end": 30,
+                    "questions": {
+                        "What is happening in the video?": "A man is sitting in front of a group of people, and they are all sitting in a classroom.",
+                        "What are the key visuals and sounds?": "The video shows a man in a suit and tie standing in front of a large screen, with a crowd of people in the background. The man appears to be speaking or making a point, and the screen displays a large image of a person in a suit and tie. The scene then transitions to a group of people sitting",
+                        "What message or purpose does the video convey?": "The video conveys a sense of unity and solidarity among the participants, as indicated by the text 'VOTE' and 'VOTE' in the top left corner."
+                    },
+                    "summary": "A man in a suit and tie is standing in front of a podium, speaking into a microphone. The background shows a large screen displaying a logo. The scene then transitions to a man in a suit and tie standing in front of a podium, speaking into a microphone. The background shows a large screen displaying a"
+                },
+                {
+                    "start": 30,
+                    "end": 35,
+                    "questions": {
+                        "What is happening in the video?": "A man is sitting at a desk in a courtroom, speaking into a microphone.",
+                        "What are the key visuals and sounds?": "The video shows a man in a dark suit and tie standing in front of a wooden panel, speaking into a microphone. The background is blurred, but it appears to be a formal setting. The man is holding a piece of paper and appears to be speaking or explaining something. The scene transitions to a close-up of",
+                        "What message or purpose does the video convey?": "The video conveys a sense of unity and unity in the face of adversity, as seen through the story of the man in the courtroom."
+                    },
+                    "summary": "A group of people are gathered in a room, with a large screen displaying a video of a man in a suit and tie. The room is filled with people, some of whom are seated and others standing. The video captures a moment of discussion or debate, with the man in the suit and tie speaking and gesturing"
+                },
+                {
+                    "start": 35,
+                    "end": 40,
+                    "questions": {
+                        "What is happening in the video?": "A man in a dark suit and tie is sitting at a desk in front of a wooden panel. He is holding a piece of paper and looking at it.",
+                        "What are the key visuals and sounds?": "The video features a man in a dark suit and tie seated at a desk, with a laptop on the desk. The background is a wooden panel with a clock and a watermark. The man appears to be speaking or presenting, and the scene transitions to a close-up of the laptop screen displaying the text 'V",
+                        "What message or purpose does the video convey?": "The video conveys a sense of seriousness and seriousness, as indicated by the text 'VOTE' and 'VOTE' in the bottom left corner. It also shows a close-up of a person's face, suggesting a moment of emotional expression or a moment of reflection."
+                    },
+                    "summary": "A man in a dark suit and tie stands behind a desk, holding a piece of paper. He is seated at a desk with a computer monitor in front of him. The background shows a wooden wall with a clock on it. The man appears to be speaking or writing something on the computer screen. The scene is set"
+                },
+                {
+                    "start": 40,
+                    "end": 45,
+                    "questions": {
+                        "What is happening in the video?": "A man in a dark suit and tie is standing behind a podium, holding a piece of paper.",
+                        "What are the key visuals and sounds?": "The video features a man in a dark suit and tie standing in front of a wooden panel, holding a piece of paper. The background is blurred, suggesting a focus on the man and the paper. The scene transitions to a close-up of the man, who appears to be speaking or presenting. The video then cuts",
+                        "What message or purpose does the video convey?": "The video conveys a sense of seriousness and seriousness, as indicated by the text 'VOTE' and 'VOTE' in the bottom left corner. It also shows a close-up of a person's face, possibly a politician or a political figure, with the text 'VOTE' and 'V"
+                    },
+                    "summary": "A man in a dark suit and tie stands behind a podium, holding a piece of paper. The background is a wooden wall with a clock on it. The man appears to be speaking or giving instructions. The scene then transitions to a close-up of a woman in a dark suit, standing in front of a"
+                },
+                {
+                    "start": 45,
+                    "end": 50,
+                    "questions": {
+                        "What is happening in the video?": "A man in a dark suit and tie is standing in front of a wooden paneled wall.",
+                        "What are the key visuals and sounds?": "The video features a man in a dark suit and tie standing in front of a wooden panel, holding a piece of paper. The background is blurred, suggesting a focus on the man and the paper. The scene transitions to a close-up of the man, who appears to be speaking or presenting. The video then cuts",
+                        "What message or purpose does the video convey?": "The video conveys a formal and serious tone, possibly indicating a political or governmental setting."
+                    },
+                    "summary": "A man in a dark suit and tie stands behind a podium, holding a piece of paper. The background is a wooden wall with a screen displaying the text 'VOTE' in white letters. The man appears to be speaking or making a point. The scene then transitions to a close-up of the man"
+                },
+                {
+                    "start": 50,
+                    "end": 55,
+                    "questions": {
+                        "What is happening in the video?": "A man in a dark suit and tie is standing at a podium, holding a piece of paper.",
+                        "What are the key visuals and sounds?": "The video features a man in a dark suit and tie standing in front of a wooden panel, holding a piece of paper. The background is blurred, suggesting a focus on the man and the paper. The scene transitions to a close-up of the man, who appears to be speaking or presenting. The video then cuts",
+                        "What message or purpose does the video convey?": "The video conveys a formal and serious tone, possibly indicating a political or governmental setting."
+                    },
+                    "summary": "A man in a dark suit and tie stands behind a podium, holding a piece of paper. The background is a wooden wall with a screen displaying the text 'VOTE' in white letters. The man appears to be speaking or making a point, as indicated by the text on the screen. The scene then"
+                },
+                {
+                    "start": 55,
+                    "end": 60,
+                    "questions": {
+                        "What is happening in the video?": "A man in a dark suit and tie is speaking at a podium.",
+                        "What are the key visuals and sounds?": "The video features a man in a dark suit and tie standing in front of a wooden panel, holding a white piece of paper and a pen. The background is blurred, suggesting a focus on the man and the paper. The scene transitions to a close-up of the man, who appears to be speaking or writing.",
+                        "What message or purpose does the video convey?": "The video conveys a sense of seriousness and seriousness, as indicated by the text 'VOTE' and 'VOTE' in the bottom left corner."
+                    },
+                    "summary": "A man in a dark suit and tie stands in front of a wooden panel, holding a white piece of paper. The background is blurred, and the text 'VOTA' (VOTE) is visible. The scene then transitions to a close-up of the man, who is now wearing a dark suit"
+                }
+            ]
+        }
+    },
+    {
+        "chunk_path": "/home/vdsmart/khai/test_tech/Multi-modal-audio-visual-co-analysis-to-identify-complex-contexts-and-define-respective-responses/prototype_v1/video_chunks/chunk_0006.mp4",
+        "results": {
+            "video_path": "/home/vdsmart/khai/test_tech/Multi-modal-audio-visual-co-analysis-to-identify-complex-contexts-and-define-respective-responses/prototype_v1/video_chunks/chunk_0006.mp4",
+            "subtitles": "Hãy subscribe cho kênh Ghiền Mì Gõ Để không bỏ lỡ những video hấp dẫn",
+            "segments": [
+                {
+                    "start": 0,
+                    "end": 5,
+                    "questions": {
+                        "What is happening in the video?": "A man in a dark suit and tie is speaking at a podium.",
+                        "What are the key visuals and sounds?": "The video features a man in a dark suit and tie standing behind a podium, holding a piece of paper. The background is a wooden panel with a dark hue, and the text 'VOTE' appears in the top left corner. The man appears to be speaking or making a statement, as indicated by the",
+                        "What message or purpose does the video convey?": "The video conveys a formal and serious tone, possibly indicating a political or governmental context."
+                    },
+                    "summary": "A man in a dark suit and tie stands behind a podium, holding a piece of paper. The background is a wooden wall with a screen displaying the text 'VOTE' in white letters. The man appears to be speaking or making a point, as indicated by the text on the screen. The scene then"
+                },
+                {
+                    "start": 5,
+                    "end": 10,
+                    "questions": {
+                        "What is happening in the video?": "A man in a dark suit is speaking at a podium.",
+                        "What are the key visuals and sounds?": "The video features a man in a dark suit and tie standing in front of a wooden panel, speaking into a microphone. The background is blurred, suggesting a formal setting. The man appears to be addressing the audience, as indicated by the text 'VOTE' and 'VOTE' in the bottom left corner",
+                        "What message or purpose does the video convey?": "The video conveys a formal and serious tone, possibly indicating a political or governmental context."
+                    },
+                    "summary": "A man in a dark suit and tie stands behind a podium, holding a microphone. The background is a wooden wall with a screen displaying the text 'VOTE' in white letters. The man appears to be speaking or making a speech. The scene then transitions to a close-up of a woman in a"
+                },
+                {
+                    "start": 10,
+                    "end": 15,
+                    "questions": {
+                        "What is happening in the video?": "A man in a dark suit and tie is standing at a podium in front of a wooden wall.",
+                        "What are the key visuals and sounds?": "The video features a man in a dark suit and tie standing behind a podium, holding a microphone and a piece of paper. The background is a wooden panel with the text 'VOTE' and 'VOTE' in a different font. The scene transitions to a close-up of the man, who",
+                        "What message or purpose does the video convey?": "The video conveys a formal and serious tone, possibly indicating a political or governmental context."
+                    },
+                    "summary": "A man in a dark suit and tie stands behind a podium, holding a microphone. The background is a wooden wall with a screen displaying the text 'VOTE' and 'VOTE' in a white font. The man appears to be speaking or making a speech. The scene then transitions to a wider"
+                },
+                {
+                    "start": 15,
+                    "end": 20,
+                    "questions": {
+                        "What is happening in the video?": "A man in a dark suit and tie is speaking at a podium.",
+                        "What are the key visuals and sounds?": "The video features a man in a dark suit and tie standing in front of a wooden panel, holding a white piece of paper and a pen. The background is blurred, suggesting a formal setting. The man appears to be speaking or writing something, and the screen shows the time '08:47' and the",
+                        "What message or purpose does the video convey?": "The video conveys a formal and serious tone, possibly indicating a political or governmental context."
+                    },
+                    "summary": "A man in a dark suit and tie stands behind a podium, holding a microphone. The background is a wooden wall with a screen displaying the text 'VOTE' in white letters. The man appears to be speaking or making a speech. The scene then transitions to a close-up of a woman in a"
+                },
+                {
+                    "start": 20,
+                    "end": 25,
+                    "questions": {
+                        "What is happening in the video?": "A man in a dark suit and tie is standing at a podium, holding a microphone and speaking into it.",
+                        "What are the key visuals and sounds?": "The video features a man in a dark suit and tie standing behind a podium, holding a microphone. The background is a wooden wall with a screen displaying the text 'VOTE' and 'VOTE' in a different font. The man appears to be speaking or making a speech, as indicated by the",
+                        "What message or purpose does the video convey?": "The video conveys a sense of seriousness and seriousness, as indicated by the text 'VOTE' and 'VOTE' repeated multiple times."
+                    },
+                    "summary": "A man in a dark suit and tie stands at a podium, holding a microphone. The background shows a wooden wall with a screen displaying the text 'VOTE' and 'VOTE' in a different font. The man appears to be speaking or making a speech. The scene then transitions to a wider"
+                },
+                {
+                    "start": 25,
+                    "end": 30,
+                    "questions": {
+                        "What is happening in the video?": "A man in a dark suit and tie is standing in front of a wooden panel.",
+                        "What are the key visuals and sounds?": "The video features a man in a dark suit and white shirt standing in front of a wooden panel, speaking into a microphone. The background is blurred, suggesting a formal setting. The text 'VOTE' appears on the screen, indicating the man's decision to vote. The scene then transitions to a close-up",
+                        "What message or purpose does the video convey?": "The video conveys a sense of seriousness and seriousness, as indicated by the text 'VOTE' and 'VOTE' repeated multiple times."
+                    },
+                    "summary": "A man in a dark suit and tie stands behind a podium, holding a microphone. The background shows a wooden panel with a screen displaying text in Chinese. The man appears to be speaking or giving a speech. The scene is set in a formal setting, possibly a courtroom or a political office. The man is wearing"
+                },
+                {
+                    "start": 30,
+                    "end": 32.64,
+                    "questions": {
+                        "What is happening in the video?": "A man is sitting at a desk in a large room with a large screen in the background.",
+                        "What are the key visuals and sounds?": "The video features a wide shot of the conference room, showing rows of wooden desks and chairs, and a large screen displaying the text 'VOTE' and 'TRUE LIFE' in large, bold letters. The room is filled with people, some seated at desks, and others standing, all engaged in the discussion",
+                        "What message or purpose does the video convey?": "The video conveys a message of unity and cooperation among the people of the country, emphasizing the importance of unity and cooperation in the face of challenges and conflicts."
+                    },
+                    "summary": "A man in a suit stands in front of a podium, speaking into a microphone. He is surrounded by a large crowd of people, some of whom are holding signs. The man is addressing the crowd, and the podium is in front of him."
+                }
+            ]
+        }
+    }
+]
