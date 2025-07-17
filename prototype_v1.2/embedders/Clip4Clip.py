@@ -12,7 +12,7 @@ class Clip4ClipWrapper:
         self.vision_model = CLIPVisionModelWithProjection.from_pretrained(model_name).to(self.device)
         self.processor = AutoProcessor.from_pretrained(model_name)
         self.num_frames = num_frames
-        print(f"✅ CLIP4Clip loaded on {self.device} – sampling {self.num_frames} frames per video")
+        print(f"✅ CLIP4Clip loaded on {self.device} - sampling {self.num_frames} frames per video")
 
     def _sample_frames(self, container):
         print("🖼 Sampling frames from video...")
@@ -33,7 +33,7 @@ class Clip4ClipWrapper:
         frames = self._sample_frames(container)
         print("📊 Encoding visual frames...")
         vision_inputs = self.processor(images=frames, return_tensors="pt").to(self.device)
-        vision_emb = self.vision_model(**vision_inputs).vision_model_output
+        vision_emb = self.vision_model(**vision_inputs).image_embeds
         vision_emb = vision_emb / vision_emb.norm(dim=-1, keepdim=True)
         print("✅ Video embedding generated.")
         return vision_emb
@@ -48,7 +48,24 @@ class Clip4ClipWrapper:
 
     def compute_similarity(self, video_emb, text_emb):
         print("🔍 Computing similarity...")
-        sim = torch.matmul(video_emb, text_emb.T)
-        score = sim.item()
+        video_repr = video_emb.mean(dim=0)  # shape: [512]
+        sim_score = torch.dot(video_repr, text_emb)
+        score = sim_score.item()
         print(f"🎯 Similarity score: {score:.4f}")
         return score
+
+if __name__ == "__main__":
+    wrapper = Clip4ClipWrapper(num_frames=8)
+
+    video_path = "sample_video.mp4"
+    texts = [
+        "a cat running",
+        "a dog running in the park",
+        "a city skyline at night",
+        "a football match"
+    ]
+
+    video_emb = wrapper.get_video_embedding(video_path)
+    for text in texts:
+        text_emb = wrapper.get_text_embedding(text)
+        wrapper.compute_similarity(video_emb, text_emb)

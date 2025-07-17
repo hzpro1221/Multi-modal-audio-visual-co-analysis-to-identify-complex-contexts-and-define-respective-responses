@@ -26,16 +26,17 @@ class XCLIPWrapper:
     def get_video_embedding(self, video_path):
         frames = self._load_frames(video_path)
         print("📊 Generating video embedding...")
+
         inputs = self.processor(
             videos=frames,
-            text=[""],  # Dummy text just to satisfy the processor's API
             return_tensors="pt",
         ).to(self.device)
 
         with torch.no_grad():
-            outputs = self.model(**inputs)
-            video_emb = outputs.video_embeds[0]  # shape: (dim,)
+            outputs = self.model.get_video_features(**inputs)
+            video_emb = outputs[0]  # shape: (dim,)
             video_emb = video_emb / video_emb.norm(dim=-1, keepdim=True)
+
         print("✅ Video embedding generated")
         return video_emb
 
@@ -43,20 +44,19 @@ class XCLIPWrapper:
         print(f"📝 Generating text embedding for: '{text}'")
         inputs = self.processor(
             text=[text],
-            videos=[np.zeros((224, 224, 3), dtype=np.uint8)],  # Dummy video input
             return_tensors="pt",
         ).to(self.device)
 
         with torch.no_grad():
-            outputs = self.model(**inputs)
-            text_emb = outputs.text_embeds[0]  # shape: (dim,)
+            outputs = self.model.get_text_features(**inputs)
+            text_emb = outputs[0]  # shape: (dim,)
             text_emb = text_emb / text_emb.norm(dim=-1, keepdim=True)
         print("✅ Text embedding generated")
         return text_emb
 
     def compute_similarity(self, video_embedding, text_embedding):
         print("🔍 Computing similarity...")
-        score = torch.matmul(video_embedding, text_embedding.T).item()
+        score = torch.matmul(video_embedding, text_embedding).item()
         print(f"🎯 Similarity score: {score:.4f}")
         return score
 
@@ -65,7 +65,7 @@ if __name__ == "__main__":
 
     video_path = "sample_video.mp4"
     texts = [
-        "a human running",
+        "a cat running",
         "a dog running in the park",
         "a city skyline at night",
         "a football match"

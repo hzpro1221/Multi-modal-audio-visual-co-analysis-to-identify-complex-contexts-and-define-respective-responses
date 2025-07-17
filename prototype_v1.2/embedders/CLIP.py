@@ -34,7 +34,7 @@ class CLIPWrapper:
 
     def compute_similarity(self, image_emb, text_emb):
         print("🔍 Computing similarity...")
-        score = torch.matmul(image_emb, text_emb.T).item()
+        score = torch.matmul(image_emb.unsqueeze(0), text_emb.unsqueeze(1)).item()
         print(f"🎯 Similarity score: {score:.4f}")
         return score
 
