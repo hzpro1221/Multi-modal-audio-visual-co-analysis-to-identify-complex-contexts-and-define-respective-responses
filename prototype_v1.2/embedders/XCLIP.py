@@ -1,0 +1,77 @@
+import torch
+import numpy as np
+from decord import VideoReader, cpu
+from transformers import AutoProcessor, AutoModel
+
+class XCLIPWrapper:
+    def __init__(self, model_name="microsoft/xclip-base-patch16", device=None, num_sampled_frames=8):
+        print("🚀 Initializing X-CLIP model...")
+        self.device = device or ("cuda" if torch.cuda.is_available() else "cpu")
+        self.num_sampled_frames = num_sampled_frames
+        self.model = AutoModel.from_pretrained(model_name).to(self.device).eval()
+        self.processor = AutoProcessor.from_pretrained(model_name)
+        print(f"✅ X-CLIP loaded on {self.device} with {self.num_sampled_frames} sampled frames")
+
+    def _load_frames(self, video_path):
+        print(f"🎥 Loading and sampling frames from: {video_path}")
+        vr = VideoReader(video_path, ctx=cpu(0))
+        num_frames = len(vr)
+        N = self.num_sampled_frames
+        frame_indices = [int(i * num_frames / N) for i in range(N)]
+        frames = vr.get_batch(frame_indices).asnumpy()
+        frames = [frame for frame in frames]
+        print(f"✅ Sampled {len(frames)} frames")
+        return frames
+
+    def get_video_embedding(self, video_path):
+        frames = self._load_frames(video_path)
+        print("📊 Generating video embedding...")
+        inputs = self.processor(
+            videos=frames,
+            text=[""],  # Dummy text just to satisfy the processor's API
+            return_tensors="pt",
+        ).to(self.device)
+
+        with torch.no_grad():
+            outputs = self.model(**inputs)
+            video_emb = outputs.video_embeds[0]  # shape: (dim,)
+            video_emb = video_emb / video_emb.norm(dim=-1, keepdim=True)
+        print("✅ Video embedding generated")
+        return video_emb
+
+    def get_text_embedding(self, text):
+        print(f"📝 Generating text embedding for: '{text}'")
+        inputs = self.processor(
+            text=[text],
+            videos=[np.zeros((224, 224, 3), dtype=np.uint8)],  # Dummy video input
+            return_tensors="pt",
+        ).to(self.device)
+
+        with torch.no_grad():
+            outputs = self.model(**inputs)
+            text_emb = outputs.text_embeds[0]  # shape: (dim,)
+            text_emb = text_emb / text_emb.norm(dim=-1, keepdim=True)
+        print("✅ Text embedding generated")
+        return text_emb
+
+    def compute_similarity(self, video_embedding, text_embedding):
+        print("🔍 Computing similarity...")
+        score = torch.matmul(video_embedding, text_embedding.T).item()
+        print(f"🎯 Similarity score: {score:.4f}")
+        return score
+
+if __name__ == "__main__":
+    wrapper = XCLIPWrapper(num_sampled_frames=8)
+
+    video_path = "sample_video.mp4"
+    texts = [
+        "a human running",
+        "a dog running in the park",
+        "a city skyline at night",
+        "a football match"
+    ]
+
+    video_emb = wrapper.get_video_embedding(video_path)
+    for text in texts:
+        text_emb = wrapper.get_text_embedding(text)
+        wrapper.compute_similarity(video_emb, text_emb)
