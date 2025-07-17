@@ -12,7 +12,7 @@ class Clip4ClipWrapper:
         self.vision_model = CLIPVisionModelWithProjection.from_pretrained(model_name).to(self.device)
         self.processor = AutoProcessor.from_pretrained(model_name)
         self.num_frames = num_frames
-        print(f"✅ CLIP4Clip loaded on {self.device} - sampling {self.num_frames} frames per video")
+        print(f"\t✅ CLIP4Clip loaded on {self.device} - sampling {self.num_frames} frames per video")
 
     def _sample_frames(self, container):
         print("🖼 Sampling frames from video...")
@@ -24,11 +24,11 @@ class Clip4ClipWrapper:
                 frames.append(frame.to_ndarray(format="rgb24"))
             if len(frames) == self.num_frames:
                 break
-        print(f"✅ Sampled {len(frames)} frames.")
+        print(f"\t✅ Sampled {len(frames)} frames.")
         return frames
 
     def get_video_embedding(self, video_path):
-        print(f"📥 Processing video: {video_path}")
+        print(f"\t📥 Processing video: {video_path}")
         container = av.open(video_path)
         frames = self._sample_frames(container)
         print("📊 Encoding visual frames...")
@@ -39,7 +39,7 @@ class Clip4ClipWrapper:
         return vision_emb
 
     def get_text_embedding(self, text):
-        print(f"📝 Processing text: '{text}'")
+        print(f"\t📝 Processing text: '{text}'")
         text_inputs = self.text_tokenizer([text], padding=True, truncation=True, return_tensors="pt").to(self.device)
         text_emb = self.text_model(**text_inputs).text_embeds[0]
         text_emb = text_emb / text_emb.norm(dim=-1, keepdim=True)
@@ -48,10 +48,15 @@ class Clip4ClipWrapper:
 
     def compute_similarity(self, video_emb, text_emb):
         print("🔍 Computing similarity...")
+
+        device = video_emb.device if video_emb.is_cuda else text_emb.device
+        video_emb = video_emb.to(device)
+        text_emb = text_emb.to(device)
+
         video_repr = video_emb.mean(dim=0)  # shape: [512]
         sim_score = torch.dot(video_repr, text_emb)
         score = sim_score.item()
-        print(f"🎯 Similarity score: {score:.4f}")
+        print(f"\t🎯 Similarity score: {score:.4f}")
         return score
 
 if __name__ == "__main__":

@@ -8,10 +8,10 @@ class CLIPWrapper:
         self.device = device or ("cuda" if torch.cuda.is_available() else "cpu")
         self.processor = CLIPProcessor.from_pretrained(model_name)
         self.model = CLIPModel.from_pretrained(model_name).to(self.device)
-        print(f"✅ CLIP loaded on {self.device}")
+        print(f"\t✅ CLIP loaded on {self.device}")
 
     def get_image_embedding(self, image_path):
-        print(f"🖼 Loading image from: {image_path}")
+        print(f"\t🖼 Loading image from: {image_path}")
         image = Image.open(image_path).convert("RGB")
         inputs = self.processor(images=image, return_tensors="pt").to(self.device)
 
@@ -23,7 +23,7 @@ class CLIPWrapper:
         return image_emb
 
     def get_text_embedding(self, text):
-        print(f"📝 Generating text embedding for: '{text}'")
+        print(f"\t📝 Generating text embedding for: '{text}'")
         inputs = self.processor(text=[text], return_tensors="pt", padding=True).to(self.device)
 
         with torch.no_grad():
@@ -34,8 +34,13 @@ class CLIPWrapper:
 
     def compute_similarity(self, image_emb, text_emb):
         print("🔍 Computing similarity...")
+
+        device = image_emb.device if image_emb.is_cuda else text_emb.device
+        image_emb = image_emb.to(device)
+        text_emb = text_emb.to(device)
+
         score = torch.matmul(image_emb.unsqueeze(0), text_emb.unsqueeze(1)).item()
-        print(f"🎯 Similarity score: {score:.4f}")
+        print(f"\t🎯 Similarity score: {score:.4f}")
         return score
 
 if __name__ == "__main__":

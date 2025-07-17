@@ -1,16 +1,17 @@
-from embedders import CLAP
-import numpy as np
+from embedders.CLAP import CLAPModelWrapper
+import torch
+from torch import Tensor
 
-# Initialize models 
-clap = CLAP()
+# Initialize the CLAP model wrapper
+clap = CLAPModelWrapper()
 
-def get_audio_embeddings(audio_path: str, model: str = "CLAP") -> np.ndarray:
+def get_audio_embeddings(audio_path: str, model: str = "CLAP") -> Tensor:
     """
     Generate an audio embedding using the specified model.
 
     :param audio_path: Path to the audio file (e.g., ".wav" or ".mp3").
     :param model: Name of the embedding model to use. Only 'CLAP' is supported.
-    :return: NumPy array representing the audio embedding.
+    :return: PyTorch tensor representing the audio embedding.
     :raises ValueError: If an unsupported model is provided.
     """
     model = model.upper()
@@ -20,11 +21,11 @@ def get_audio_embeddings(audio_path: str, model: str = "CLAP") -> np.ndarray:
     
     raise ValueError(f"❌ Unsupported model: {model}")
 
-def get_audio_text_similarity(audio_embedding: np.ndarray, text: str, model: str = "CLAP") -> float:
+def get_audio_text_similarity(audio_embedding: Tensor, text: str, model: str = "CLAP") -> float:
     """
     Compute the similarity score between an audio embedding and a text string.
 
-    :param audio_embedding: NumPy array representing the audio embedding.
+    :param audio_embedding: PyTorch tensor representing the audio embedding.
     :param text: Text string to compare with the audio.
     :param model: Name of the embedding model to use. Only 'CLAP' is supported.
     :return: Cosine similarity score as a float.
@@ -52,7 +53,7 @@ if __name__ == "__main__":
     try:
         # Get audio embedding
         audio_embedding = get_audio_embeddings(audio_path, model="CLAP")
-        assert isinstance(audio_embedding, np.ndarray), "Audio embedding must be a numpy array"
+        assert isinstance(audio_embedding, Tensor), "Audio embedding must be a torch.Tensor"
         print("✅ Audio embedding shape:", audio_embedding.shape)
 
         # Compute similarity for each text
