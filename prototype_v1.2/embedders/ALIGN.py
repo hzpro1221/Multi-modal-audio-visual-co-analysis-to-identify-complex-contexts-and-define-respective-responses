@@ -23,30 +23,26 @@ class ALIGNWrapper:
         print("✅ Image embedding extracted.")
         return embedding
 
-    def get_text_embeddings(self, text_list):
-        print(f"✍️  Processing {len(text_list)} text candidates...")
-        inputs = self.processor(text=text_list, padding=True, return_tensors="pt").to(self.device)
+    def get_text_embedding(self, text):
+        print(f"✍️  Processing text: '{text}'")
+        inputs = self.processor(text=text, return_tensors="pt").to(self.device)
 
-        print("🔍 Extracting text embeddings...")
+        print("🔍 Extracting text embedding...")
         with torch.no_grad():
-            embeddings = self.model.get_text_features(**inputs)
+            embedding = self.model.get_text_features(**inputs)
 
-        embeddings = embeddings / embeddings.norm(p=2, dim=-1, keepdim=True)
-        print("✅ Text embeddings extracted.")
-        return embeddings
+        embedding = embedding / embedding.norm(p=2, dim=-1, keepdim=True)
+        print("✅ Text embedding extracted.")
+        return embedding
 
-    def compute_similarity(self, image_path, text_list):
-        print("🔗 Computing similarity between image and text...")
+    def compute_similarity(self, image_path, text):
+        print(f"🔗 Computing similarity between image and text: '{text}'")
         image_embed = self.get_image_embedding(image_path)
-        text_embeds = self.get_text_embeddings(text_list)
+        text_embed = self.get_text_embedding(text)
 
-        similarities = torch.matmul(image_embed, text_embeds.T).squeeze(0)
-        scores = similarities.cpu().tolist()
-
-        print("📊 Similarity scores:")
-        for text, score in zip(text_list, scores):
-            print(f"   - '{text}': {score:.4f}")
-        return scores
+        similarity = torch.matmul(image_embed, text_embed.T).squeeze().item()
+        print(f"📊 Similarity score for '{text}': {similarity:.4f}")
+        return similarity
 
 # Example test
 if __name__ == "__main__":
@@ -60,4 +56,5 @@ if __name__ == "__main__":
         "a sunset over the ocean"
     ]
 
-    align.compute_similarity(image_path, text_candidates)
+    for text in text_candidates:
+        align.compute_similarity(image_path, text)
