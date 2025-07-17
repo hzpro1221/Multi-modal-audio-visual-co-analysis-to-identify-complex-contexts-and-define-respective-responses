@@ -16,14 +16,14 @@ class CLAPModelWrapper:
 
         self.processor = ClapProcessor.from_pretrained(model_name)
         self.model = ClapModel.from_pretrained(model_name).to(self.device).eval()
-        print(f"✅ CLAP model loaded on {self.device}")
+        print(f"\t✅ CLAP model loaded on {self.device}")
 
     def _load_audio(self, file_path):
-        print(f"🎧 Loading audio from: {file_path}")
+        print(f"\t🎧 Loading audio from: {file_path}")
         waveform, sr = torchaudio.load(file_path)
 
         if sr != self.sampling_rate:
-            print(f"🔄 Resampling from {sr} Hz to {self.sampling_rate} Hz...")
+            print(f"\t🔄 Resampling from {sr} Hz to {self.sampling_rate} Hz...")
             resampler = torchaudio.transforms.Resample(sr, self.sampling_rate)
             waveform = resampler(waveform)
 
@@ -39,7 +39,7 @@ class CLAPModelWrapper:
         for i in range(0, total_samples, self.chunk_size):
             chunk = waveform[i: i + self.chunk_size]
             chunks.append(chunk.numpy().astype("float32"))
-        print(f"🔪 Audio chunked into {len(chunks)} segment(s) of 10s")
+        print(f"\t🔪 Audio chunked into {len(chunks)} segment(s) of 10s")
         return chunks
 
     def get_audio_embedding(self, audio_path):
@@ -68,7 +68,7 @@ class CLAPModelWrapper:
         """
         Returns a single text embedding.
         """
-        print(f"📝 Generating text embedding for: '{text}'")
+        print(f"\t📝 Generating text embedding for: '{text}'")
         inputs = self.processor(text=[text], return_tensors="pt").to(self.device)
 
         with torch.no_grad():
@@ -79,12 +79,14 @@ class CLAPModelWrapper:
         return text_embed[0].unsqueeze(0)  # shape: [1, dim]
 
     def compute_similarity(self, audio_embedding, text_embedding):
-        """
-        Computes cosine similarity between a single audio embedding and text embedding.
-        """
         print("🔍 Computing similarity...")
+
+        device = audio_embedding.device if audio_embedding.is_cuda else text_embedding.device
+        audio_embedding = audio_embedding.to(device)
+        text_embedding = text_embedding.to(device)
+
         score = torch.matmul(audio_embedding, text_embedding.T).item()
-        print(f"🎯 Similarity score: {score:.4f}")
+        print(f"\t🎯 Similarity score: {score:.4f}")
         return score
 
 if __name__ == "__main__":

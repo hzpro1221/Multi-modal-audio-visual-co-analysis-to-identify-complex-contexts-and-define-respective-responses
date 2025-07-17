@@ -10,17 +10,17 @@ class XCLIPWrapper:
         self.num_sampled_frames = num_sampled_frames
         self.model = AutoModel.from_pretrained(model_name).to(self.device).eval()
         self.processor = AutoProcessor.from_pretrained(model_name)
-        print(f"✅ X-CLIP loaded on {self.device} with {self.num_sampled_frames} sampled frames")
+        print(f"\t✅ X-CLIP loaded on {self.device} with {self.num_sampled_frames} sampled frames")
 
     def _load_frames(self, video_path):
-        print(f"🎥 Loading and sampling frames from: {video_path}")
+        print(f"\t🎥 Loading and sampling frames from: {video_path}")
         vr = VideoReader(video_path, ctx=cpu(0))
         num_frames = len(vr)
         N = self.num_sampled_frames
         frame_indices = [int(i * num_frames / N) for i in range(N)]
         frames = vr.get_batch(frame_indices).asnumpy()
         frames = [frame for frame in frames]
-        print(f"✅ Sampled {len(frames)} frames")
+        print(f"\t✅ Sampled {len(frames)} frames")
         return frames
 
     def get_video_embedding(self, video_path):
@@ -41,7 +41,7 @@ class XCLIPWrapper:
         return video_emb
 
     def get_text_embedding(self, text):
-        print(f"📝 Generating text embedding for: '{text}'")
+        print(f"\t📝 Generating text embedding for: '{text}'")
         inputs = self.processor(
             text=[text],
             return_tensors="pt",
@@ -56,8 +56,13 @@ class XCLIPWrapper:
 
     def compute_similarity(self, video_embedding, text_embedding):
         print("🔍 Computing similarity...")
+
+        device = video_embedding.device if video_embedding.is_cuda else text_embedding.device
+        video_embedding = video_embedding.to(device)
+        text_embedding = text_embedding.to(device)
+
         score = torch.matmul(video_embedding, text_embedding).item()
-        print(f"🎯 Similarity score: {score:.4f}")
+        print(f"\t🎯 Similarity score: {score:.4f}")
         return score
 
 if __name__ == "__main__":
