@@ -7,7 +7,6 @@ from image_text_embedder import get_image_embedding
 import json
 
 import torch
-import numpy as np
 import json
 
 def load_vector_database_from_json(input_path="vector_database.json"):
