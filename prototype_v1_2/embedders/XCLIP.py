@@ -61,7 +61,6 @@ class XCLIPWrapper:
         with torch.no_grad():
             outputs = self.model.get_video_features(**inputs)
             video_emb = outputs[0]  # shape: (dim,)
-            video_emb = video_emb / video_emb.norm(dim=-1, keepdim=True)
 
         # print("✅ Video embedding generated")
         return video_emb
@@ -76,7 +75,6 @@ class XCLIPWrapper:
         with torch.no_grad():
             outputs = self.model.get_text_features(**inputs)
             text_emb = outputs[0]  # shape: (dim,)
-            text_emb = text_emb / text_emb.norm(dim=-1, keepdim=True)
         # print("✅ Text embedding generated")
         return text_emb
 
@@ -86,6 +84,9 @@ class XCLIPWrapper:
         device = video_embedding.device if video_embedding.is_cuda else text_embedding.device
         video_embedding = video_embedding.to(device)
         text_embedding = text_embedding.to(device)
+
+        video_embedding = video_embedding / video_embedding.norm(p=2, dim=-1, keepdim=True)
+        text_embedding = text_embedding / text_embedding.norm(p=2, dim=-1, keepdim=True)           
 
         score = torch.matmul(video_embedding, text_embedding).item()
         # print(f"\t🎯 Similarity score: {score:.4f}")

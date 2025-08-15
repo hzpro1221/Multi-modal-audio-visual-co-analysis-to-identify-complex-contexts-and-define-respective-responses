@@ -34,7 +34,6 @@ class Clip4ClipWrapper:
         # print("📊 Encoding visual frames...")
         vision_inputs = self.processor(images=frames, return_tensors="pt").to(self.device)
         vision_emb = self.vision_model(**vision_inputs).image_embeds
-        vision_emb = vision_emb / vision_emb.norm(dim=-1, keepdim=True)
         # print("✅ Video embedding generated.")
         return vision_emb
 
@@ -42,7 +41,6 @@ class Clip4ClipWrapper:
         # print(f"\t📝 Processing text: '{text}'")
         text_inputs = self.text_tokenizer([text], padding=True, truncation=True, return_tensors="pt").to(self.device)
         text_emb = self.text_model(**text_inputs).text_embeds[0]
-        text_emb = text_emb / text_emb.norm(dim=-1, keepdim=True)
         # print("✅ Text embedding generated.")
         return text_emb
 
@@ -53,10 +51,10 @@ class Clip4ClipWrapper:
         video_emb = video_emb.to(device)
         text_emb = text_emb.to(device)
 
-        video_repr = video_emb.mean(dim=0)  # shape: [512]
-        sim_score = torch.dot(video_repr, text_emb)
-        score = sim_score.item()
-        # print(f"\t🎯 Similarity score: {score:.4f}")
+        video_emb = video_emb / video_emb.norm(p=2, dim=-1, keepdim=True)
+        text_emb = text_emb / text_emb.norm(p=2, dim=-1, keepdim=True)        
+
+        score = torch.matmul(video_emb, text_emb.T).item()
         return score
 
 if __name__ == "__main__":

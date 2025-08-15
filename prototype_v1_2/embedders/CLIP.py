@@ -22,7 +22,6 @@ class CLIPWrapper:
 
             with torch.no_grad():
                 img_embed = self.model.get_image_features(**inputs)
-                img_embed = img_embed / img_embed.norm(dim=-1, keepdim=True)
                 embeddings.append(img_embed)
 
         # Stack embeddings and average
@@ -37,8 +36,7 @@ class CLIPWrapper:
 
         with torch.no_grad():
             outputs = self.model.get_text_features(**inputs)
-            text_emb = outputs[0] / outputs[0].norm(p=2, dim=0, keepdim=True)
-        # print("✅ Text embedding generated")
+            text_emb = outputs[0]
         return text_emb
 
     def compute_similarity(self, image_emb, text_emb):
@@ -47,6 +45,9 @@ class CLIPWrapper:
         device = image_emb.device if image_emb.is_cuda else text_emb.device
         image_emb = image_emb.to(device)
         text_emb = text_emb.to(device)
+
+        image_emb = image_emb / image_emb.norm(p=2, dim=-1, keepdim=True)
+        text_emb = text_emb / text_emb.norm(p=2, dim=-1, keepdim=True)           
 
         score = torch.matmul(image_emb.unsqueeze(0), text_emb.unsqueeze(1)).item()
         # print(f"\t🎯 Similarity score: {score:.4f}")

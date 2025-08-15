@@ -18,8 +18,6 @@ class ALIGNWrapper:
         # print("🔍 Extracting image embedding...")
         with torch.no_grad():
             embedding = self.model.get_image_features(**inputs)
-
-        embedding = embedding / embedding.norm(p=2, dim=-1, keepdim=True)
         # print("✅ Image embedding extracted.")
         return embedding
 
@@ -31,7 +29,6 @@ class ALIGNWrapper:
         with torch.no_grad():
             embedding = self.model.get_text_features(**inputs)
 
-        embedding = embedding / embedding.norm(p=2, dim=-1, keepdim=True)
         # print("✅ Text embedding extracted.")
         return embedding
 
@@ -41,6 +38,9 @@ class ALIGNWrapper:
         device = image_embed.device if image_embed.is_cuda else text_embed.device
         image_embed = image_embed.to(device)
         text_embed = text_embed.to(device)
+
+        image_embed = image_embed / image_embed.norm(p=2, dim=-1, keepdim=True)
+        text_embed = text_embed / text_embed.norm(p=2, dim=-1, keepdim=True)
 
         similarity = torch.matmul(image_embed, text_embed.T).squeeze().item()
         # print(f"\t🎯 Similarity score: {similarity:.4f}")

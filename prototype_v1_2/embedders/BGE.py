@@ -12,7 +12,7 @@ class BGEWrapper:
         # BGE performs better with prompt-style instructions
         prompt = f"Represent this sentence for searching relevant passages: {text}"
         with torch.no_grad():
-            embedding = self.model.encode(prompt, convert_to_tensor=True, normalize_embeddings=True)
+            embedding = self.model.encode(prompt, convert_to_tensor=True, normalize_embeddings=False)
         return embedding
 
     def compute_similarity(self, topic_embed, query_embed):
@@ -20,6 +20,11 @@ class BGEWrapper:
         topic_embed = topic_embed.to(device)
         query_embed = query_embed.to(device)
 
+        # Normalize embeddings
+        topic_embed = topic_embed / topic_embed.norm(p=2, dim=-1, keepdim=True)
+        query_embed = query_embed / query_embed.norm(p=2, dim=-1, keepdim=True)
+
+        # Compute cosine similarity
         similarity = util.cos_sim(topic_embed, query_embed).item()
         return similarity
 

@@ -58,7 +58,6 @@ class CLAPModelWrapper:
 
         with torch.no_grad():
             audio_embeds = self.model.get_audio_features(**inputs)
-            audio_embeds = audio_embeds / audio_embeds.norm(dim=-1, keepdim=True)
 
         avg_audio_embedding = audio_embeds.mean(dim=0, keepdim=True)
         # print("✅ Audio embedding generated.")
@@ -73,7 +72,6 @@ class CLAPModelWrapper:
 
         with torch.no_grad():
             text_embed = self.model.get_text_features(**inputs)
-            text_embed = text_embed / text_embed.norm(dim=-1, keepdim=True)
 
         # print("✅ Text embedding generated.")
         return text_embed[0].unsqueeze(0)  # shape: [1, dim]
@@ -84,6 +82,9 @@ class CLAPModelWrapper:
         device = audio_embedding.device if audio_embedding.is_cuda else text_embedding.device
         audio_embedding = audio_embedding.to(device)
         text_embedding = text_embedding.to(device)
+
+        audio_embedding = audio_embedding / audio_embedding.norm(p=2, dim=-1, keepdim=True)
+        text_embedding = text_embedding / text_embedding.norm(p=2, dim=-1, keepdim=True)        
 
         score = torch.matmul(audio_embedding, text_embedding.T).item()
         # print(f"\t🎯 Similarity score: {score:.4f}")
