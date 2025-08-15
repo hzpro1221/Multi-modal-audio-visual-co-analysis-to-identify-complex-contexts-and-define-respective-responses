@@ -10,17 +10,26 @@ class CLIPWrapper:
         self.model = CLIPModel.from_pretrained(model_name).to(self.device)
         print(f"\t✅ CLIP loaded on {self.device}")
 
-    def get_image_embedding(self, image_path):
-        # print(f"\t🖼 Loading image from: {image_path}")
-        image = Image.open(image_path).convert("RGB")
-        inputs = self.processor(images=image, return_tensors="pt").to(self.device)
+    def get_image_embedding(self, image_paths):
+        """
+        Returns a single averaged embedding over all given images.
+        """
+        embeddings = []
 
-        # print("📊 Generating image embedding...")
-        with torch.no_grad():
-            outputs = self.model.get_image_features(**inputs)
-            image_emb = outputs / outputs.norm(p=2, dim=-1, keepdim=True)
-        # print("✅ Image embedding generated")
-        return image_emb
+        for image_path in image_paths:
+            image = Image.open(str(image_path)).convert("RGB")
+            inputs = self.processor(images=image, return_tensors="pt").to(self.device)
+
+            with torch.no_grad():
+                img_embed = self.model.get_image_features(**inputs)
+                img_embed = img_embed / img_embed.norm(dim=-1, keepdim=True)
+                embeddings.append(img_embed)
+
+        # Stack embeddings and average
+        embeddings = torch.cat(embeddings, dim=0)
+        avg_image_embedding = embeddings.mean(dim=0, keepdim=True)
+
+        return avg_image_embedding  # shape: [1, dim]
 
     def get_text_embedding(self, text):
         # print(f"\t📝 Generating text embedding for: '{text}'")
