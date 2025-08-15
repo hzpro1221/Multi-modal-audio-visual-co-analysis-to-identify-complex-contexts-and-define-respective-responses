@@ -6,7 +6,7 @@ from transformers import AutoProcessor, CLIPTextModelWithProjection, CLIPTokeniz
 class Clip4ClipWrapper:
     def __init__(self, model_name="Searchium-ai/clip4clip-webvid150k", device=None, num_frames=8):
         print("🚀 Initializing CLIP4Clip model...")
-        self.device = device or ("cuda:1" if torch.cuda.is_available() else "cpu")
+        self.device = device or ("cuda" if torch.cuda.is_available() else "cpu")
         self.text_tokenizer = CLIPTokenizer.from_pretrained(model_name)
         self.text_model = CLIPTextModelWithProjection.from_pretrained(model_name).to(self.device)
         self.vision_model = CLIPVisionModelWithProjection.from_pretrained(model_name).to(self.device)

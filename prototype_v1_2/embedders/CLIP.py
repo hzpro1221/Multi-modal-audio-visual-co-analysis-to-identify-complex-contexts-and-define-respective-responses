@@ -5,7 +5,7 @@ from transformers import CLIPProcessor, CLIPModel
 class CLIPWrapper:
     def __init__(self, model_name="openai/clip-vit-base-patch32", device=None):
         print("🚀 Initializing CLIP model...")
-        self.device = device or ("cuda:1" if torch.cuda.is_available() else "cpu")
+        self.device = device or ("cuda" if torch.cuda.is_available() else "cpu")
         self.processor = CLIPProcessor.from_pretrained(model_name)
         self.model = CLIPModel.from_pretrained(model_name).to(self.device)
         print(f"\t✅ CLIP loaded on {self.device}")

@@ -10,7 +10,7 @@ class CLAPModelWrapper:
 
     def __init__(self, model_name="laion/clap-htsat-fused", device=None):
         print("🚀 Initializing HuggingFace CLAP model...")
-        self.device = device or ("cuda:1" if torch.cuda.is_available() else "cpu")
+        self.device = device or ("cuda" if torch.cuda.is_available() else "cpu")
         self.sampling_rate = 48000
         self.chunk_size = self.sampling_rate * 10  # 10 seconds
 

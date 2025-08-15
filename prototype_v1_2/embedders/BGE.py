@@ -4,7 +4,7 @@ from sentence_transformers import SentenceTransformer, util
 class BGEWrapper:
     def __init__(self, model_name="BAAI/bge-large-en-v1.5", device=None):
         print("🚀 Initializing BGE model...")
-        self.device = device or ("cuda:1" if torch.cuda.is_available() else "cpu")
+        self.device = device or ("cuda" if torch.cuda.is_available() else "cpu")
         self.model = SentenceTransformer(model_name, device=self.device)
         print(f"\t✅ BGE model loaded on {self.device}")
 

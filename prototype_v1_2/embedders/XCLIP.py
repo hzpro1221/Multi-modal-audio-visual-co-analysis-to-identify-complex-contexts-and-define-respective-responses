@@ -9,7 +9,7 @@ from transformers import AutoProcessor, AutoModel
 class XCLIPWrapper:
     def __init__(self, model_name="microsoft/xclip-base-patch16", device=None, num_sampled_frames=8):
         print("🚀 Initializing X-CLIP model...")
-        self.device = device or ("cuda:1" if torch.cuda.is_available() else "cpu")
+        self.device = device or ("cuda" if torch.cuda.is_available() else "cpu")
         self.num_sampled_frames = num_sampled_frames
         self.model = AutoModel.from_pretrained(model_name).to(self.device).eval()
         self.processor = AutoProcessor.from_pretrained(model_name)

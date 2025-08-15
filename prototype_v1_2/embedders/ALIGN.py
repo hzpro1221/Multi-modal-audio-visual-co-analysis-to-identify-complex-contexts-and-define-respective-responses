@@ -5,7 +5,7 @@ from transformers import AutoProcessor, AutoModelForZeroShotImageClassification
 class ALIGNWrapper:
     def __init__(self, model_name="kakaobrain/align-base", device=None):
         print("🚀 Initializing ALIGN model...")
-        self.device = device or ("cuda:1" if torch.cuda.is_available() else "cpu")
+        self.device = device or ("cuda" if torch.cuda.is_available() else "cpu")
         self.processor = AutoProcessor.from_pretrained(model_name)
         self.model = AutoModelForZeroShotImageClassification.from_pretrained(model_name).to(self.device)
         print(f"\t✅ ALIGN model loaded on {self.device}")

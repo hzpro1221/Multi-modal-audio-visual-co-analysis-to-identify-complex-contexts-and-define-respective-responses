@@ -46,44 +46,39 @@ def extract_audio_from_video(
 
     return output_path
 
-def extract_keyframe_from_video(
-    video_path: Union[str, Path],
-    num_frame: int = 16,
-    output_folder: Union[str, Path] = "keyframes"
-) -> List[Path]:
-    """
-    Extracts keyframes from a video using FFmpeg.
+import subprocess
+from pathlib import Path
+from typing import Union, List
 
-    Args:
-        video_path (str | Path): Path to the input video file.
-        num_frame (int): Number of keyframes to extract evenly across the video.
-        output_folder (str | Path): Directory where keyframes will be saved.
-
-    Returns:
-        List[Path]: List of paths to the extracted keyframe image files.
-
-    Raises:
-        RuntimeError: If the FFmpeg command fails.
-    """
+def extract_keyframe_from_video(video_path: Union[str, Path], num_frame: int = 16, output_folder: Union[str, Path] = "keyframes") -> List[Path]:
     video_path = Path(video_path)
     output_subfolder = Path(output_folder) / video_path.stem
     output_subfolder.mkdir(parents=True, exist_ok=True)
 
+    # Get total frame count
+    cmd_info = [
+        "ffprobe", "-v", "error",
+        "-count_frames",
+        "-select_streams", "v:0",
+        "-show_entries", "stream=nb_read_frames",
+        "-of", "default=nokey=1:noprint_wrappers=1",
+        str(video_path)
+    ]
+    total_frames = int(subprocess.check_output(cmd_info).decode().strip())
+
+    step = max(1, total_frames // num_frame)  # frame step
+
     output_pattern = output_subfolder / "frame_%03d.jpg"
 
-    # FFmpeg filter to extract evenly spaced frames
     command = [
         "ffmpeg",
         "-y",
         "-i", str(video_path),
-        "-vf", f"select='not(mod(n,ceil(n/{num_frame})))'",
+        "-vf", f"select='not(mod(n,{step}))'",
         "-vsync", "vfr",
         str(output_pattern)
     ]
 
-    try:
-        subprocess.run(command, check=True, stdout=subprocess.DEVNULL, stderr=subprocess.PIPE)
-    except subprocess.CalledProcessError as e:
-        raise RuntimeError(f"FFmpeg failed: {e.stderr.decode()}")
+    subprocess.run(command, check=True, stdout=subprocess.DEVNULL, stderr=subprocess.PIPE)
 
     return sorted(output_subfolder.glob("frame_*.jpg"))
