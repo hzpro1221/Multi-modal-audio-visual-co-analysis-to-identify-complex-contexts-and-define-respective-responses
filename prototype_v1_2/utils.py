@@ -2,6 +2,46 @@ import subprocess
 from pathlib import Path
 from typing import Union, List
 
+def split_video_to_segments(
+        video_path: Union[str, Path],
+        segment_duration: int = 5,
+        output_folder: Union[str, Path] = "video_segments"
+) -> List[Path]:
+    """
+    Splits a video file into segments of specified duration using the FFmpeg command-line
+    tool.
+    Args:
+        video_path (str | Path): Path to the input video file (e.g., .mp4, .mov).
+        segment_duration (int): Duration of each segment in seconds.
+        output_folder (str | Path): Folder where the output segments will be saved.
+    Returns:
+
+        List[Path]: List of paths to the saved video segments.
+    """
+
+    video_path = Path(video_path)
+    output_folder = Path(output_folder)
+    output_folder.mkdir(parents=True, exist_ok=True)
+
+    # Build the FFmpeg command to split the video
+    command = [
+        "ffmpeg",
+        "-i", str(video_path),  # Input video file
+        "-c", "copy",  # Copy codec
+        "-map", "0",  # Map all streams
+        "-segment_time", str(segment_duration),  # Segment duration in seconds
+        "-f", "segment",  # Use segment format
+        str(output_folder / f"{video_path.stem}_%03d{video_path.suffix}")  # Output pattern
+    ]
+
+    try:
+        # Execute the FFmpeg command
+        subprocess.run(command, check=True, stdout=subprocess.DEVNULL, stderr=subprocess.PIPE)
+    except subprocess.CalledProcessError as e:
+        raise RuntimeError(f"FFmpeg failed: {e.stderr.decode()}")
+
+    return sorted(output_folder.glob(f"{video_path.stem}_*{video_path.suffix}"))
+
 def extract_audio_from_video(
     video_path: Union[str, Path],
     output_path: Union[str, Path] = None,
