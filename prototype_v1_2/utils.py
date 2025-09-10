@@ -2,46 +2,6 @@ import subprocess
 from pathlib import Path
 from typing import Union, List
 
-def split_video_to_segments(
-        video_path: Union[str, Path],
-        segment_duration: int = 5,
-        output_folder: Union[str, Path] = "video_segments"
-) -> List[Path]:
-    """
-    Splits a video file into segments of specified duration using the FFmpeg command-line
-    tool.
-    Args:
-        video_path (str | Path): Path to the input video file (e.g., .mp4, .mov).
-        segment_duration (int): Duration of each segment in seconds.
-        output_folder (str | Path): Folder where the output segments will be saved.
-    Returns:
-
-        List[Path]: List of paths to the saved video segments.
-    """
-
-    video_path = Path(video_path)
-    output_folder = Path(output_folder)
-    output_folder.mkdir(parents=True, exist_ok=True)
-
-    # Build the FFmpeg command to split the video
-    command = [
-        "ffmpeg",
-        "-i", str(video_path),  # Input video file
-        "-c", "copy",  # Copy codec
-        "-map", "0",  # Map all streams
-        "-segment_time", str(segment_duration),  # Segment duration in seconds
-        "-f", "segment",  # Use segment format
-        str(output_folder / f"{video_path.stem}_%03d{video_path.suffix}")  # Output pattern
-    ]
-
-    try:
-        # Execute the FFmpeg command
-        subprocess.run(command, check=True, stdout=subprocess.DEVNULL, stderr=subprocess.PIPE)
-    except subprocess.CalledProcessError as e:
-        raise RuntimeError(f"FFmpeg failed: {e.stderr.decode()}")
-
-    return sorted(output_folder.glob(f"{video_path.stem}_*{video_path.suffix}"))
-
 def extract_audio_from_video(
     video_path: Union[str, Path],
     output_path: Union[str, Path] = None,
@@ -86,10 +46,6 @@ def extract_audio_from_video(
 
     return output_path
 
-import subprocess
-from pathlib import Path
-from typing import Union, List
-
 def extract_keyframe_from_video(video_path: Union[str, Path], num_frame: int = 16, output_folder: Union[str, Path] = "keyframes") -> List[Path]:
     video_path = Path(video_path)
     output_subfolder = Path(output_folder) / video_path.stem
@@ -106,7 +62,14 @@ def extract_keyframe_from_video(video_path: Union[str, Path], num_frame: int = 1
     ]
     total_frames = int(subprocess.check_output(cmd_info).decode().strip())
 
-    step = max(1, total_frames // num_frame)  # frame step
+    if num_frame > total_frames:
+        num_frame = total_frames
+
+    # Chọn index frame cần lấy (đều khoảng cách)
+    frame_indices = [int(i * total_frames / num_frame) for i in range(num_frame)]
+
+    # Ghép thành chuỗi điều kiện cho ffmpeg
+    select_expr = "+".join([f"eq(n\\,{idx})" for idx in frame_indices])
 
     output_pattern = output_subfolder / "frame_%03d.jpg"
 
@@ -114,7 +77,7 @@ def extract_keyframe_from_video(video_path: Union[str, Path], num_frame: int = 1
         "ffmpeg",
         "-y",
         "-i", str(video_path),
-        "-vf", f"select='not(mod(n,{step}))'",
+        "-vf", f"select='{select_expr}'",
         "-vsync", "vfr",
         str(output_pattern)
     ]
