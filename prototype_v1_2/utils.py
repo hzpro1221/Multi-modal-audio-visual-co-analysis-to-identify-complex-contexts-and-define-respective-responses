@@ -46,12 +46,16 @@ def extract_audio_from_video(
 
     return output_path
 
-def extract_keyframe_from_video(video_path: Union[str, Path], num_frame: int = 16, output_folder: Union[str, Path] = "keyframes") -> List[Path]:
+def extract_keyframe_from_video(
+    video_path: Union[str, Path], 
+    num_frame: int = 16, 
+    output_folder: Union[str, Path] = "keyframes"
+) -> List[Path]:
     video_path = Path(video_path)
     output_subfolder = Path(output_folder) / video_path.stem
     output_subfolder.mkdir(parents=True, exist_ok=True)
 
-    # Get total frame count
+    # Lấy tổng số frame
     cmd_info = [
         "ffprobe", "-v", "error",
         "-count_frames",
@@ -60,24 +64,34 @@ def extract_keyframe_from_video(video_path: Union[str, Path], num_frame: int = 1
         "-of", "default=nokey=1:noprint_wrappers=1",
         str(video_path)
     ]
-    total_frames = int(subprocess.check_output(cmd_info).decode().strip())
+    try:
+        total_frames = int(subprocess.check_output(cmd_info).decode().strip())
+    except Exception:
+        # fallback: dùng nb_frames (nếu có)
+        cmd_info_alt = [
+            "ffprobe", "-v", "error",
+            "-select_streams", "v:0",
+            "-show_entries", "stream=nb_frames",
+            "-of", "default=nokey=1:noprint_wrappers=1",
+            str(video_path)
+        ]
+        total_frames = int(subprocess.check_output(cmd_info_alt).decode().strip())
 
     if num_frame > total_frames:
         num_frame = total_frames
 
-    # Chọn index frame cần lấy (đều khoảng cách)
+    # Chọn index frame theo khoảng cách đều
     frame_indices = [int(i * total_frames / num_frame) for i in range(num_frame)]
 
-    # Ghép thành chuỗi điều kiện cho ffmpeg
-    select_expr = "+".join([f"eq(n\\,{idx})" for idx in frame_indices])
+    # Ghép select expression (⚠️ không escape , trong Python)
+    select_expr = "+".join([f"eq(n,{idx})" for idx in frame_indices])
 
     output_pattern = output_subfolder / "frame_%03d.jpg"
 
     command = [
-        "ffmpeg",
-        "-y",
+        "ffmpeg", "-y",
         "-i", str(video_path),
-        "-vf", f"select='{select_expr}'",
+        "-vf", f"select={select_expr}",
         "-vsync", "vfr",
         str(output_pattern)
     ]
