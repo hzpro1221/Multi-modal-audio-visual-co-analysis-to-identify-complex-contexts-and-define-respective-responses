@@ -24,27 +24,42 @@ class XCLIPWrapper:
 
         fps = cap.get(cv2.CAP_PROP_FPS)
         total_frames = int(cap.get(cv2.CAP_PROP_FRAME_COUNT))
-        duration = total_frames / fps
+
+        if total_frames == 0:
+            raise RuntimeError(f"❌ No frames found in video: {video_path}")
 
         if num_frames > total_frames:
             num_frames = total_frames
 
-        timestamps = [(i + 1) * duration / (num_frames + 1) for i in range(num_frames)]
+        # chọn index frame đều nhau
+        positions = [
+            int((i + 1) * total_frames / (num_frames + 1))
+            for i in range(num_frames)
+        ]
 
         frames = []
-        for ts in timestamps:
-            cap.set(cv2.CAP_PROP_POS_MSEC, ts * 1000)  # seek theo mili giây
-            ret, frame = cap.read()
-            if ret:
-                img = Image.fromarray(cv2.cvtColor(frame, cv2.COLOR_BGR2RGB))
-                frames.append(img)
+        for frame_idx in positions:
+            while True:
+                tmp_frame_idx = frame_idx 
 
+                cap.set(cv2.CAP_PROP_POS_FRAMES, frame_idx)
+                ret, frame = cap.read()
+                if ret:
+                    img = Image.fromarray(cv2.cvtColor(frame, cv2.COLOR_BGR2RGB))
+                    frames.append(img)
+                    break
+                else:
+                    tmp_frame_idx += 1
+                    if tmp_frame_idx >= total_frames:
+                        raise RuntimeError(f"❌ Cannot read frame {frame_idx} from video: {video_path}")
         cap.release()
-
         if len(frames) != num_frames:
-            raise RuntimeError(f"❌ Extracted {len(frames)} frames, expected {num_frames}")
-
+            raise RuntimeError(
+                f"fps: {fps}, total_frames: {total_frames}, "
+                f"requested: {num_frames}, extracted: {len(frames)}"
+            )
         return frames
+    
     def get_video_embedding(self, video_path):
         frames = self._load_frames(video_path)
         # print("📊 Generating video embedding...")
