@@ -4,6 +4,8 @@ import subprocess
 import tempfile
 import os
 import cv2
+from PIL import Image
+
 from transformers import AutoProcessor, AutoModel
 
 class XCLIPWrapper:
@@ -29,21 +31,26 @@ class XCLIPWrapper:
         duration = float(subprocess.check_output(cmd_duration).decode().strip())
         interval = duration / num_frames
 
-        # FFmpeg command to extract frames at regular intervals
-        cmd = [
-            "ffmpeg", "-i", video_path,
-            "-vf", f"fps=1/{interval}",
-            "-q:v", "2",
-            output_pattern,
-            "-hide_banner", "-loglevel", "error"
+        frames = []
+        # extract frames at regular intervals        
+        cap = cv2.VideoCapture(str(video_path))
+        total_frames = int(cap.get(cv2.CAP_PROP_FRAME_COUNT))
+
+        if num_frames > total_frames:
+            num_frames = total_frames
+        positions = [
+            int((i + 1) * total_frames / (num_frames + 1))
+            for i in range(num_frames)
         ]
-        subprocess.run(cmd, check=True)
-
+        for i, frame_idx in enumerate(positions):
+            cap.set(cv2.CAP_PROP_POS_FRAMES, frame_idx)
+            ret, frame = cap.read()        
+            if ret:
+                img = Image.fromarray(cv2.cvtColor(frame, cv2.COLOR_BGR2RGB))
+                frames.append(img)
         # Load frames as numpy arrays
-        frame_files = sorted([os.path.join(temp_dir, f) for f in os.listdir(temp_dir) if f.endswith(".jpg")])
-        frames = [cv2.cvtColor(cv2.imread(f), cv2.COLOR_BGR2RGB) for f in frame_files]
-
         if len(frames) != num_frames:
+            print(f"video_path - {video_path}")
             raise RuntimeError(f"❌ Extracted {len(frames)} frames, expected {num_frames}")
         
         # print(f"\t✅ Sampled {len(frames)} frames using FFmpeg")
