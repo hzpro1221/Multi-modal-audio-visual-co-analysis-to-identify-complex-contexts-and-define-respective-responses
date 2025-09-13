@@ -39,8 +39,8 @@ class XCLIPWrapper:
 
         frames = []
         for frame_idx in positions:
+            tmp_frame_idx = frame_idx 
             while True:
-                tmp_frame_idx = frame_idx 
 
                 cap.set(cv2.CAP_PROP_POS_FRAMES, frame_idx)
                 ret, frame = cap.read()
