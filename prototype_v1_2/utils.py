@@ -2,6 +2,9 @@ import subprocess
 from pathlib import Path
 from typing import Union, List
 
+import cv2
+from PIL import Image
+
 def extract_audio_from_video(
     video_path: Union[str, Path],
     output_path: Union[str, Path] = None,
@@ -55,47 +58,27 @@ def extract_keyframe_from_video(
     output_subfolder = Path(output_folder) / video_path.stem
     output_subfolder.mkdir(parents=True, exist_ok=True)
 
-    # Lấy tổng số frame
-    cmd_info = [
-        "ffprobe", "-v", "error",
-        "-count_frames",
-        "-select_streams", "v:0",
-        "-show_entries", "stream=nb_read_frames",
-        "-of", "default=nokey=1:noprint_wrappers=1",
-        str(video_path)
-    ]
-    try:
-        total_frames = int(subprocess.check_output(cmd_info).decode().strip())
-    except Exception:
-        # fallback: dùng nb_frames (nếu có)
-        cmd_info_alt = [
-            "ffprobe", "-v", "error",
-            "-select_streams", "v:0",
-            "-show_entries", "stream=nb_frames",
-            "-of", "default=nokey=1:noprint_wrappers=1",
-            str(video_path)
-        ]
-        total_frames = int(subprocess.check_output(cmd_info_alt).decode().strip())
+    cap = cv2.VideoCapture(str(video_path))
+    total_frames = int(cap.get(cv2.CAP_PROP_FRAME_COUNT))
 
     if num_frame > total_frames:
         num_frame = total_frames
 
-    # Chọn index frame theo khoảng cách đều
-    frame_indices = [int(i * total_frames / num_frame) for i in range(num_frame)]
-
-    # Ghép select expression (⚠️ không escape , trong Python)
-    select_expr = "+".join([f"eq(n,{idx})" for idx in frame_indices])
-
-    output_pattern = output_subfolder / "frame_%03d.jpg"
-
-    command = [
-        "ffmpeg", "-y",
-        "-i", str(video_path),
-        "-vf", f"select={select_expr}",
-        "-vsync", "vfr",
-        str(output_pattern)
+    # Chọn vị trí frame cách đều
+    positions = [
+        int((i + 1) * total_frames / (num_frame + 1))
+        for i in range(num_frame)
     ]
 
-    subprocess.run(command, check=True, stdout=subprocess.DEVNULL, stderr=subprocess.PIPE)
+    saved_paths: List[Path] = []
+    for i, frame_idx in enumerate(positions):
+        cap.set(cv2.CAP_PROP_POS_FRAMES, frame_idx)
+        ret, frame = cap.read()
+        if ret:
+            img = Image.fromarray(cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)).convert("RGB").copy()
+            out_path = output_subfolder / f"frame_{i+1:03d}.jpg"
+            img.save(out_path)
+            saved_paths.append(out_path)
 
-    return sorted(output_subfolder.glob("frame_*.jpg"))
+    cap.release()
+    return saved_paths
