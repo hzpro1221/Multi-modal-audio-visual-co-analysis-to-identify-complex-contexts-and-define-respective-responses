@@ -18,44 +18,33 @@ class XCLIPWrapper:
         print(f"\t✅ X-CLIP loaded on {self.device} with {self.num_sampled_frames} sampled frames")
 
     def _load_frames(self, video_path, num_frames=8):
-        # print(f"\t🎥 [FFmpeg] Sampling {num_frames} frames from: {video_path}")
-        
-        temp_dir = tempfile.mkdtemp()
-        output_pattern = os.path.join(temp_dir, "frame_%04d.jpg")
-
-        # Get total duration in seconds
-        cmd_duration = [
-            "ffprobe", "-v", "error", "-show_entries", "format=duration",
-            "-of", "default=noprint_wrappers=1:nokey=1", video_path
-        ]
-        duration = float(subprocess.check_output(cmd_duration).decode().strip())
-        interval = duration / num_frames
-
-        frames = []
-        # extract frames at regular intervals        
         cap = cv2.VideoCapture(str(video_path))
+        if not cap.isOpened():
+            raise RuntimeError(f"❌ Cannot open video: {video_path}")
+
+        fps = cap.get(cv2.CAP_PROP_FPS)
         total_frames = int(cap.get(cv2.CAP_PROP_FRAME_COUNT))
+        duration = total_frames / fps
 
         if num_frames > total_frames:
             num_frames = total_frames
-        positions = [
-            int((i + 1) * total_frames / (num_frames + 1))
-            for i in range(num_frames)
-        ]
-        for i, frame_idx in enumerate(positions):
-            cap.set(cv2.CAP_PROP_POS_FRAMES, frame_idx)
-            ret, frame = cap.read()        
+
+        timestamps = [(i + 1) * duration / (num_frames + 1) for i in range(num_frames)]
+
+        frames = []
+        for ts in timestamps:
+            cap.set(cv2.CAP_PROP_POS_MSEC, ts * 1000)  # seek theo mili giây
+            ret, frame = cap.read()
             if ret:
                 img = Image.fromarray(cv2.cvtColor(frame, cv2.COLOR_BGR2RGB))
                 frames.append(img)
-        # Load frames as numpy arrays
-        if len(frames) != num_frames:
-            print(f"video_path - {video_path}")
-            raise RuntimeError(f"❌ Extracted {len(frames)} frames, expected {num_frames}")
-        
-        # print(f"\t✅ Sampled {len(frames)} frames using FFmpeg")
-        return frames
 
+        cap.release()
+
+        if len(frames) != num_frames:
+            raise RuntimeError(f"❌ Extracted {len(frames)} frames, expected {num_frames}")
+
+        return frames
     def get_video_embedding(self, video_path):
         frames = self._load_frames(video_path)
         # print("📊 Generating video embedding...")
