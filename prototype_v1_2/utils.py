@@ -99,6 +99,9 @@ def extract_keyframe_from_video(
             ]
             try:
                 subprocess.run(cmd_extract, check=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+                if not out_path.exists() or out_path.stat().st_size == 0:
+                  tmp_frame_idx += 1
+                  continue
                 saved_paths.append(out_path)
             except subprocess.CalledProcessError as e:
                 tmp_frame_idx += 1
