@@ -91,7 +91,7 @@ def extract_keyframe_from_video(
             cmd_extract = [
                 "ffmpeg",
                 "-i", str(video_path),
-                "-vf", f"select=eq(n\\,{frame_idx})",
+                "-vf", f"select=eq(n\\,{tmp_frame_idx})",
                 "-vframes", "1",
                 "-q:v", "2",  # chất lượng JPEG cao
                 str(out_path),
