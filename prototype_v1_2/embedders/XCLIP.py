@@ -2,6 +2,8 @@ import torch
 import numpy as np
 import subprocess
 import tempfile
+from pathlib import Path
+
 import os
 import cv2
 from PIL import Image
@@ -17,17 +19,34 @@ class XCLIPWrapper:
         self.processor = AutoProcessor.from_pretrained(model_name)
         print(f"\t✅ X-CLIP loaded on {self.device} with {self.num_sampled_frames} sampled frames")
 
-    def _load_frames(self, video_path, num_frames=8):
-        cap = cv2.VideoCapture(str(video_path))
-        if not cap.isOpened():
-            raise RuntimeError(f"❌ Cannot open video: {video_path}")
+    def _load_frames(self, video_path, num_frames=8, tmp_dir="tmp_frames"):
+        video_path = Path(video_path)
+        tmp_dir = Path(tmp_dir)
+        tmp_dir.mkdir(parents=True, exist_ok=True)
 
-        fps = cap.get(cv2.CAP_PROP_FPS)
-        total_frames = int(cap.get(cv2.CAP_PROP_FRAME_COUNT))
-
+        # lấy thông tin video bằng ffprobe
+        cmd_info = [
+            "ffprobe", 
+            "-v", "error",
+            "-select_streams", "v:0",
+            "-count_packets",
+            "-show_entries", "stream=nb_read_packets,r_frame_rate",
+            "-of", "csv=p=0",
+            str(video_path)
+        ]
+        result = subprocess.run(cmd_info, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
+        if result.returncode != 0:
+            raise RuntimeError(f"❌ Cannot probe video: {video_path}")
+        
+        lines = result.stdout.strip().split(",")
+        if len(lines) < 2:
+            raise RuntimeError(f"❌ Cannot parse ffprobe output: {result.stdout}")
+        
+        total_frames = int(lines[0])
+        fps = lines[1]  # dạng "30/1" hoặc "25/1"
+        
         if total_frames == 0:
             raise RuntimeError(f"❌ No frames found in video: {video_path}")
-
         if num_frames > total_frames:
             num_frames = total_frames
 
@@ -38,21 +57,30 @@ class XCLIPWrapper:
         ]
 
         frames = []
-        for frame_idx in positions:
-            tmp_frame_idx = frame_idx 
+        for i, frame_idx in enumerate(positions):
+            out_path = tmp_dir / f"frame_{i}.jpg"
+            tmp_frame_idx = frame_idx
             while True:
-
-                cap.set(cv2.CAP_PROP_POS_FRAMES, frame_idx)
-                ret, frame = cap.read()
-                if ret:
-                    img = Image.fromarray(cv2.cvtColor(frame, cv2.COLOR_BGR2RGB))
+                cmd_extract = [
+                    "ffmpeg",
+                    "-i", str(video_path),
+                    "-vf", f"select=eq(n\\,{tmp_frame_idx})",
+                    "-vframes", "1",
+                    "-q:v", "2",
+                    str(out_path),
+                    "-y"
+                ]
+                try:
+                    subprocess.run(cmd_extract, check=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+                    img = Image.open(out_path).convert("RGB")
                     frames.append(img)
                     break
-                else:
+                except subprocess.CalledProcessError:
                     tmp_frame_idx += 1
                     if tmp_frame_idx >= total_frames:
-                        raise RuntimeError(f"❌ Cannot read frame {frame_idx} from video: {video_path}")
-        cap.release()
+                        raise RuntimeError(f"❌ Cannot extract frame {frame_idx} from video: {video_path}")
+                    continue
+
         if len(frames) != num_frames:
             raise RuntimeError(
                 f"fps: {fps}, total_frames: {total_frames}, "

@@ -85,21 +85,26 @@ def extract_keyframe_from_video(
     saved_paths: List[Path] = []
 
     for i, frame_idx in enumerate(positions):
+        tmp_frame_idx = frame_idx 
         out_path = output_subfolder / f"frame_{i+1:03d}.jpg"
-        # FFmpeg: trích xuất frame thứ N
-        cmd_extract = [
-            "ffmpeg",
-            "-i", str(video_path),
-            "-vf", f"select=eq(n\\,{frame_idx})",
-            "-vframes", "1",
-            "-q:v", "2",  # chất lượng JPEG cao
-            str(out_path),
-            "-y"  # overwrite nếu tồn tại
-        ]
-        try:
-            subprocess.run(cmd_extract, check=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-            saved_paths.append(out_path)
-        except subprocess.CalledProcessError as e:
-            print(f"⚠️ Cannot extract frame {frame_idx} from {video_path}, skipping. Error: {e}")
+        while True:
+            cmd_extract = [
+                "ffmpeg",
+                "-i", str(video_path),
+                "-vf", f"select=eq(n\\,{frame_idx})",
+                "-vframes", "1",
+                "-q:v", "2",  # chất lượng JPEG cao
+                str(out_path),
+                "-y"  # overwrite nếu tồn tại
+            ]
+            try:
+                subprocess.run(cmd_extract, check=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+                saved_paths.append(out_path)
+            except subprocess.CalledProcessError as e:
+                tmp_frame_idx += 1
+                if tmp_frame_idx >= total_frames:
+                    raise RuntimeError(f"❌ Cannot extract frame {frame_idx} from video: {video_path}")
+                continue
+            break
 
     return saved_paths
