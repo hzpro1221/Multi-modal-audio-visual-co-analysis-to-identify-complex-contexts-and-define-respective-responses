@@ -19,32 +19,46 @@ class XCLIPWrapper:
         self.processor = AutoProcessor.from_pretrained(model_name)
         print(f"\t✅ X-CLIP loaded on {self.device} with {self.num_sampled_frames} sampled frames")
 
+    def _probe_video_info(self, video_path):
+        # lấy số frame
+        cmd_frames = [
+            "ffprobe",
+            "-v", "error",
+            "-count_frames",
+            "-select_streams", "v:0",
+            "-show_entries", "stream=nb_read_frames",
+            "-of", "default=nokey=1:noprint_wrappers=1",
+            str(video_path)
+        ]
+        frames_out = subprocess.run(cmd_frames, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
+        total_frames = int(frames_out.stdout.strip())
+
+        # lấy fps
+        cmd_fps = [
+            "ffprobe",
+            "-v", "error",
+            "-select_streams", "v:0",
+            "-show_entries", "stream=r_frame_rate",
+            "-of", "default=nokey=1:noprint_wrappers=1",
+            str(video_path)
+        ]
+        fps_out = subprocess.run(cmd_fps, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
+        fps_str = fps_out.stdout.strip()  # ví dụ "30/1"
+        if "/" in fps_str:
+            num, den = fps_str.split("/")
+            fps = float(num) / float(den)
+        else:
+            fps = float(fps_str)
+
+        return total_frames, fps
+
     def _load_frames(self, video_path, num_frames=8, tmp_dir="tmp_frames"):
         video_path = Path(video_path)
         tmp_dir = Path(tmp_dir)
         tmp_dir.mkdir(parents=True, exist_ok=True)
 
-        # lấy thông tin video bằng ffprobe
-        cmd_info = [
-            "ffprobe", 
-            "-v", "error",
-            "-select_streams", "v:0",
-            "-count_packets",
-            "-show_entries", "stream=nb_read_packets,r_frame_rate",
-            "-of", "csv=p=0",
-            str(video_path)
-        ]
-        result = subprocess.run(cmd_info, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
-        if result.returncode != 0:
-            raise RuntimeError(f"❌ Cannot probe video: {video_path}")
-        
-        lines = result.stdout.strip().split(",")
-        if len(lines) < 2:
-            raise RuntimeError(f"❌ Cannot parse ffprobe output: {result.stdout}")
-        
-        total_frames = int(lines[0])
-        fps = lines[1]  # dạng "30/1" hoặc "25/1"
-        
+        total_frames, fps = self._probe_video_info(video_path)
+
         if total_frames == 0:
             raise RuntimeError(f"❌ No frames found in video: {video_path}")
         if num_frames > total_frames:
