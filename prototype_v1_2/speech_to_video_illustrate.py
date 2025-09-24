@@ -5,9 +5,6 @@ import os
 import re
 import subprocess
 from main import content_retrieve
-from text_to_speech import text_to_speech
-import cv2
-import numpy as np
 
 SPLITTERS = {".", "!", "?"}
 OUTPUT_CLIP_DIR = "output_clips"
@@ -68,12 +65,12 @@ def loop_or_trim_video(video_path, duration, output_path):
         ]
     subprocess.run(cmd, check=True)
 
-def combine_audio_video_text(video_path, audio_path, text, output_path, idx=0):
+def combine_audio_video_text(video_path, audio_path, text, output_path, video_name, idx=0):
     # Tạo đường dẫn text file tạm
     textfile_path = os.path.join(OUTPUT_CLIP_DIR, f"segment_{idx}_text.txt")
 
     # Gói dòng (wrap) văn bản mỗi 50 ký tự (có thể điều chỉnh)
-    wrapped_text = "\n".join(re.findall(r'.{1,90}(?:\s+|$)', text))
+    wrapped_text = "\n".join(re.findall(r'.{1,80}(?:\s+|$)', text))
 
     # Ghi văn bản xuống file
     with open(textfile_path, "w") as f:
@@ -82,20 +79,20 @@ def combine_audio_video_text(video_path, audio_path, text, output_path, idx=0):
     drawtext_filter = (
         f"drawtext=fontfile=/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf:"
         f"textfile='{textfile_path}':"
-        "x=20:y=H-th-80:fontsize=12:fontcolor=white:"
+        "x=(w-text_w)/2:y=H-th-60:fontsize=12:fontcolor=white:"
         "box=1:boxcolor=black@0.5:boxborderw=5:line_spacing=6"
     )
 
     # Draw segment index (top-left)
     drawtext_index = (
         f"drawtext=fontfile=/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf:"
-        f"text='Segment {idx}':"
-        "x=10:y=10:fontsize=16:fontcolor=yellow:"
+        f"text='Segment {idx} - {video_name}':"
+        "x=10:y=10:fontsize=14:fontcolor=yellow:"
         "box=1:boxcolor=black@0.5:boxborderw=5"
     )
 
     # Combine filters with a comma
-    vf_filter = f"{drawtext_text},{drawtext_index}"
+    vf_filter = f"{drawtext_filter},{drawtext_index}"
 
     cmd = [
         "ffmpeg", "-y",
@@ -150,42 +147,50 @@ def timestamp_to_ms(timestamp):
     return (int(h) * 3600 + int(m) * 60 + int(s)) * 1000 + int(ms)
 
 if __name__ == "__main__":
-    audio_path = "input.wav"
+    audio_path = "/content/Multi-modal-audio-visual-co-analysis-to-identify-complex-contexts-and-define-respective-responses/prototype_v1_2/input.wav"
     segments = speech_to_text(audio_path)
     audio = AudioSegment.from_file(audio_path)
-
+    
     final_video_paths = []
+    
+    # max buffer
+    MAX_SENTENCE_LENGTH = 300
+    sentence = ""
 
     for idx, segment in enumerate(segments):
-        try:
-            start_ms = timestamp_to_ms(segment["timestamp"][0])
-            end_ms = timestamp_to_ms(segment["timestamp"][1])
-            
-            segment_audio = audio[start_ms:end_ms]
-            segment_audio_path = os.path.join(OUTPUT_CLIP_DIR, f"segment_{idx}.wav")
-            segment_audio.export(segment_audio_path, format="wav")
+        start_ms = timestamp_to_ms(segment["timestamp"][0])
+        end_ms = timestamp_to_ms(segment["timestamp"][1])
 
-            sentence = segment["text"]
-            queried_video_path, queried_video_score = content_retrieve(sentence)
-            video_tmp_path = os.path.join(OUTPUT_CLIP_DIR, f"video_base_{idx}.mp4")
+        segment_audio = audio[start_ms:end_ms]
+        segment_audio_path = os.path.join(OUTPUT_CLIP_DIR, f"segment_{idx}.wav")
+        segment_audio.export(segment_audio_path, format="wav")
 
-            audio_duration = get_audio_duration(segment_audio_path)
-            loop_or_trim_video(queried_video_path, duration=audio_duration, output_path=video_tmp_path)
+        sentence += segment["text"] + " "
+        if len(sentence) > MAX_SENTENCE_LENGTH:
+            sentence = sentence[len(sentence) - MAX_SENTENCE_LENGTH:]
 
-            final_clip_path = os.path.join(OUTPUT_CLIP_DIR, f"sentence_{idx}.mp4")
-            combine_audio_video_text(
-                video_path=video_tmp_path,
-                audio_path=segment_audio_path,
-                text=sentence,
-                output_path=final_clip_path
-            )
+        queried_video_path, queried_video_score = content_retrieve(sentence)
+        print(f"queried_video_path, queried_video_score: {queried_video_path, queried_video_score}")
+        video_tmp_path = os.path.join(OUTPUT_CLIP_DIR, f"video_base_{idx}.mp4")
 
-            encoded_clip_path = os.path.join(OUTPUT_CLIP_DIR, f"encoded_{idx}.mp4")
-            reencode_video(final_clip_path, encoded_clip_path)
+        audio_duration = get_audio_duration(segment_audio_path)
+        loop_or_trim_video(queried_video_path, duration=audio_duration, output_path=video_tmp_path)
 
-            final_video_paths.append(encoded_clip_path)
-        except:
-            continue 
+        final_clip_path = os.path.join(OUTPUT_CLIP_DIR, f"sentence_{idx}.mp4")
+        combine_audio_video_text(
+            video_path=video_tmp_path,
+            audio_path=segment_audio_path,
+            text=sentence,
+            output_path=final_clip_path,
+            video_name=os.path.basename(queried_video_path),
+            idx=idx
+        )
+
+        encoded_clip_path = os.path.join(OUTPUT_CLIP_DIR, f"encoded_{idx}.mp4")
+        reencode_video(final_clip_path, encoded_clip_path)
+
+        final_video_paths.append(encoded_clip_path)
 
     output_path = "final_output.mp4"
+    print(final_video_paths)
     concat_videos_ffmpeg(final_video_paths, output_path)

@@ -12,7 +12,7 @@ STRIDE_LENGTH_S = (5, 5)
 SPLITTERS = {".", "!", "?"}
 TOKEN_LIMIT = 40
 
-DEVICE = "cuda:1" if torch.cuda.is_available() else "cpu"
+DEVICE = "cuda:0" if torch.cuda.is_available() else "cpu"
 DTYPE = torch.float16 if torch.cuda.is_available() else torch.float32
 
 

@@ -1,5 +1,5 @@
 from preprocessor import load_video_embeds
-from extent_network import NeuralNetworkRetrieverimport
+from extent_network import NeuralNetworkRetriever
 
 import os
 
@@ -8,16 +8,23 @@ import torch
 model = NeuralNetworkRetriever().to("cuda" if torch.cuda.is_available() else "cpu")
 model.load_state_dict(torch.load("/content/model.pth"))
 
+DEVICE = model.device 
 VIDEO_EMBEDS_PATH = "video_embeds.json"
 GET_VIDEO_EMBEDDER = model._video_combine_embeds
 GET_TEXT_EMBEDDER =  model._text_combine_embeds
 
+
 print("\nLoading video embeds...")
-video_embeds = load_video_embeds(VIDEO_EMBEDS_PATH, device="gpu")
+video_embeds = load_video_embeds(VIDEO_EMBEDS_PATH, device=DEVICE)
 
 def content_retrieve(query):
+
+
     print("Getting video embed...\n")
     candidate_vids = torch.cat([video_embed.unsqueeze(0) for video_path, video_embed in video_embeds.items()])
+    print(f"candidate_vids.device: {candidate_vids.device}")
+    print(f"model.device: {model.device}")
+    print(f"query: {query}")
     video_embeds_output = model.get_video_embed(candidate_vids.unsqueeze(0))
     
     print("Getting text embed...\n")
@@ -37,6 +44,8 @@ def content_retrieve(query):
     
     return best_video_path, best_score
 
+if __name__ == "__main__":
+  print(content_retrieve("what is the meaning of life?"))
 
 # clusters = load_vector_database_from_json("video_embeds.json")
 # cluster_embeddings = [cluster["cluster_name"] for cluster in clusters]
